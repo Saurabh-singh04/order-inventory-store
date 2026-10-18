@@ -59,7 +59,7 @@ dotnet run --project src/Store.Api --launch-profile http
 On startup the API applies migrations and seeds the users (Development only), so a fresh database
 is ready to use.
 
-### Client
+### Frontend (Angular)
 
 ```bash
 cd frontend
@@ -77,7 +77,7 @@ cp .env.example .env      # set your own SQL and JWT values
 docker compose up --build
 ```
 
-- Client: http://localhost:8080 (nginx also proxies `/api` and `/hubs` to the API)
+- Frontend: http://localhost:8080 (nginx also proxies `/api` and `/hubs` to the API)
 - API / Swagger: http://localhost:5080/swagger
 - SQL Server: `localhost,14333`
 
@@ -130,8 +130,30 @@ Current results:
 | Suite | Tests |
 |---|---|
 | Store.UnitTests | 40 passing (DiscountCalculator, status transitions, place order, idempotency, status change + auto-cancel) |
-| Store.IntegrationTests | 10 passing (last-unit race ×5 rounds → one 201 / one 409, parallel same-key requests, rate limit, ownership, 400 on invalid transition, role checks) |
-| Angular (Karma/Jasmine) | 13 passing (interceptor refresh/retry, cart service, error mapping) |
+| Store.IntegrationTests | 18 passing (last-unit race ×5 rounds → one 201 / one 409, parallel same-key requests, rate limit, ownership, 400 on invalid transition, role checks, refresh rotation + reuse detection, parallel register/refresh, paging edge cases, DB health check) |
+| Angular (Karma/Jasmine) | 19 passing (interceptor refresh/retry, auth token refresh for SignalR, cart service, catalogue URL filters, error mapping) |
+| Postman / Newman | 65 requests, 124 assertions passing against the running API |
+
+### Postman collection (manual / end-to-end testing)
+
+`postman/` contains a ready-to-import collection and environment:
+
+- `Store.postman_collection.json` – every endpoint with real JSON bodies and test scripts, grouped as
+  Health → Auth → Products → Orders (rules 1, 3) → Status transitions (rule 4) → Reports → Rate limit.
+  Tokens, ids and row versions are captured into collection variables as the run goes, so it works
+  top to bottom without editing anything.
+- `Store.local.postman_environment.json` – `baseUrl` (`http://localhost:5080`) and the seeded logins.
+
+Import both into Postman and run the collection with the Collection Runner, or from the command line
+while the API is running:
+
+```bash
+npx newman run postman/Store.postman_collection.json -e postman/Store.local.postman_environment.json
+```
+
+Each run uses a unique suffix for SKUs/emails, so it can be repeated against the same database. The
+login endpoint is limited to 5 calls a minute and the last folder deliberately hits that limit, so
+wait about a minute between two full runs.
 
 ## 4. Seeded logins
 
@@ -305,6 +327,25 @@ running.
 - **Logging** – Serilog with structured properties (`OrderId`, `CustomerId`, `Total`, ...), request
   logging, and EF SQL command logging in Development.
 - **Swagger** – with a JWT bearer security scheme.
+- **Health** – `/health` includes a database check (`AddDbContextCheck`), so it reports Unhealthy when SQL Server is down.
+
+### Edge cases handled
+
+These came out of reviewing the code against production traffic rather than the happy path; each
+one has a test.
+
+| Case | Without handling | Now |
+|---|---|---|
+| Two sign-ups with the same email at the same time | both pass the "email exists?" check, second insert hits the unique index → 500 | unique violation mapped to 409 `email_taken` |
+| Two refreshes with the same refresh token at the same time | both rotate it → two valid refresh tokens | `RevokedAt` is a concurrency token; the loser gets 401 |
+| Login with an unknown email | returns faster than a wrong password (no hash check) → reveals which emails exist | a dummy hash is verified so both paths cost the same |
+| `?page=2147483647` | `(page-1)*pageSize` overflows → negative `Skip` → 500 | page is clamped |
+| `{"status": 99}` | enum binds to an undefined value | `[EnumDataType]` → 400 |
+| Very long / random search strings | unbounded cache keys and memory | `search` max 100 chars, cache has a `SizeLimit` |
+| Order with thousands of lines | huge `IN (...)` query | max 50 distinct products per order |
+| Two browser tabs and rotating refresh tokens | a tab refreshing with the old token trips reuse detection and logs the user out everywhere | tabs share the session through the `storage` event |
+| SignalR reconnect after the access token expired | negotiate fails with 401 | the hub's `accessTokenFactory` refreshes the token first |
+| Validation errors on controllers with `[Produces("application/json")]` | returned as `application/json` | always `application/problem+json` |
 
 ---
 
@@ -413,6 +454,13 @@ ROW_NUMBER vs DENSE_RANK, integer AVG, sargable date ranges).
 
 - Store the refresh token in an httpOnly, SameSite cookie instead of `localStorage` (XSS exposure),
   and add a CSRF token for the refresh call.
+- A cleanup job for expired / revoked refresh tokens (the table only grows today), and a short
+  grace period for a just-rotated token so a request that was in flight during a refresh isn't
+  treated as theft.
+- `EnableRetryOnFailure` for transient SQL errors – it needs the order transaction wrapped in
+  `Database.CreateExecutionStrategy().ExecuteAsync(...)`, which I left out to keep the flow readable.
+- Access tokens stay valid until they expire (15 min) after logout or a role change; a token
+  version per user (checked in `OnTokenValidated`) would cut that off immediately.
 - Outbox: claim messages with `UPDLOCK, READPAST` so several API instances can run the processor, and
   publish to a real broker (Service Bus / RabbitMQ) instead of SignalR + logs. Same for the cleanup job
   (only one instance should run it – a distributed lock).
