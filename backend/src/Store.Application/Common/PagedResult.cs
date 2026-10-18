@@ -11,9 +11,13 @@ public static class PagingExtensions
 {
     public const int MaxPageSize = 100;
 
+    // Keeps (page - 1) * pageSize inside int range - ?page=2147483647 would otherwise overflow
+    // into a negative Skip() and end up as a 500.
+    public const int MaxPage = int.MaxValue / MaxPageSize;
+
     public static (int Page, int PageSize) Normalize(int page, int pageSize)
     {
-        page = page < 1 ? 1 : page;
+        page = Math.Clamp(page, 1, MaxPage);
         pageSize = pageSize switch
         {
             < 1 => 10,

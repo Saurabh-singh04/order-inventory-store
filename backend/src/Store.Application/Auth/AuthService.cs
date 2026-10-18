@@ -20,9 +20,14 @@ public sealed class AuthService : IAuthService
     private const string InvalidCredentials = "Invalid email or password.";
     private const string InvalidRefreshToken = "Refresh token is invalid or expired.";
 
+    // Verified against when the email is unknown, so both paths cost one PBKDF2 run
+    // and response time doesn't reveal which emails are registered.
+    private static string? _dummyPasswordHash;
+
     private readonly IAppDbContext _db;
     private readonly IPasswordHasher _passwordHasher;
     private readonly ITokenService _tokens;
+    private readonly IDbExceptionClassifier _dbErrors;
     private readonly TimeProvider _clock;
     private readonly ILogger<AuthService> _logger;
 
@@ -30,12 +35,14 @@ public sealed class AuthService : IAuthService
         IAppDbContext db,
         IPasswordHasher passwordHasher,
         ITokenService tokens,
+        IDbExceptionClassifier dbErrors,
         TimeProvider clock,
         ILogger<AuthService> logger)
     {
         _db = db;
         _passwordHasher = passwordHasher;
         _tokens = tokens;
+        _dbErrors = dbErrors;
         _clock = clock;
         _logger = logger;
     }
@@ -57,7 +64,15 @@ public sealed class AuthService : IAuthService
         user.PasswordHash = _passwordHasher.Hash(user, request.Password);
 
         _db.Users.Add(user);
-        await _db.SaveChangesAsync(cancellationToken);
+        try
+        {
+            await _db.SaveChangesAsync(cancellationToken);
+        }
+        catch (DbUpdateException ex) when (_dbErrors.IsUniqueConstraintViolation(ex))
+        {
+            // Two sign-ups with the same email at the same moment: the unique index decides.
+            throw new ConflictException("An account with this email already exists.", "email_taken");
+        }
 
         _logger.LogInformation("User {UserId} registered", user.Id);
         return await IssueTokensAsync(user, cancellationToken);
@@ -70,6 +85,9 @@ public sealed class AuthService : IAuthService
 
         if (user is null)
         {
+            _dummyPasswordHash ??= _passwordHasher.Hash(new User(), "not-a-real-password");
+            _passwordHasher.Verify(new User { PasswordHash = _dummyPasswordHash }, request.Password);
+
             _logger.LogWarning("Login failed: unknown email");
             throw new UnauthorizedException(InvalidCredentials);
         }
@@ -109,8 +127,17 @@ public sealed class AuthService : IAuthService
         if (!stored.IsActive(UtcNow))
             throw new UnauthorizedException(InvalidRefreshToken);
 
-        var response = await IssueTokensAsync(stored.User, cancellationToken, replacing: stored);
-        return response;
+        try
+        {
+            return await IssueTokensAsync(stored.User, cancellationToken, replacing: stored);
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            // RevokedAt is a concurrency token: a parallel refresh with the same token already
+            // rotated it, so this one must not mint a second valid refresh token.
+            _logger.LogWarning("Concurrent refresh with the same token for user {UserId}", stored.UserId);
+            throw new UnauthorizedException(InvalidRefreshToken);
+        }
     }
 
     public async Task LogoutAsync(string refreshToken, CancellationToken cancellationToken)

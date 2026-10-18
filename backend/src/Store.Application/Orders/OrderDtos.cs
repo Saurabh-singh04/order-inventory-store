@@ -5,7 +5,9 @@ namespace Store.Application.Orders;
 
 public sealed class CreateOrderRequest
 {
-    [Required, MinLength(1, ErrorMessage = "An order needs at least one item.")]
+    [Required]
+    [MinLength(1, ErrorMessage = "An order needs at least one item.")]
+    [MaxLength(50, ErrorMessage = "An order can have at most 50 different products.")]
     public List<OrderItemRequest> Items { get; set; } = new();
 }
 
@@ -20,12 +22,14 @@ public sealed class OrderItemRequest
 
 public sealed class UpdateOrderStatusRequest
 {
-    [Required]
+    // EnumDataType rejects numbers that aren't a defined status, e.g. {"status": 99}.
+    [Required, EnumDataType(typeof(OrderStatus))]
     public OrderStatus? Status { get; set; }
 }
 
 public sealed class OrderListQuery
 {
+    [EnumDataType(typeof(OrderStatus))]
     public OrderStatus? Status { get; set; }
     public int Page { get; set; } = 1;
     public int PageSize { get; set; } = 10;

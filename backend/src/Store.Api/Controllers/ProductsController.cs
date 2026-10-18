@@ -8,7 +8,6 @@ namespace Store.Api.Controllers;
 
 [ApiController]
 [Route("api/products")]
-[Produces("application/json")]
 public sealed class ProductsController : ControllerBase
 {
     private readonly IProductService _products;

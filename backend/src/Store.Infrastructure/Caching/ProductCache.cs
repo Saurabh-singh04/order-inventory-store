@@ -35,6 +35,7 @@ public sealed class ProductCache : IProductCache
         var value = await factory(cancellationToken);
 
         var options = new MemoryCacheEntryOptions()
+            .SetSize(1)
             .SetAbsoluteExpiration(Lifetime)
             .AddExpirationToken(new CancellationChangeToken(token));
         _cache.Set(key, value, options);

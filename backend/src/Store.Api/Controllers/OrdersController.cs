@@ -10,7 +10,6 @@ namespace Store.Api.Controllers;
 [ApiController]
 [Authorize]
 [Route("api/orders")]
-[Produces("application/json")]
 public sealed class OrdersController : ControllerBase
 {
     public const string IdempotencyHeader = "Idempotency-Key";

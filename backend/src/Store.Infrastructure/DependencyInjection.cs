@@ -30,7 +30,8 @@ public static class DependencyInjection
         services.AddSingleton<ITokenService, JwtTokenService>();
         services.AddSingleton<IPasswordHasher, IdentityPasswordHasher>();
 
-        services.AddMemoryCache();
+        // Bounded, so random search strings can't grow the cache without limit.
+        services.AddMemoryCache(options => options.SizeLimit = 2_000);
         services.AddSingleton<IProductCache, ProductCache>();
 
         // The API replaces this with the SignalR implementation.

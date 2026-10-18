@@ -14,6 +14,10 @@ public sealed class RefreshTokenConfiguration : IEntityTypeConfiguration<Refresh
         builder.Property(t => t.TokenHash).HasMaxLength(128).IsRequired();
         builder.Property(t => t.ReplacedByTokenHash).HasMaxLength(128);
 
+        // UPDATE ... WHERE RevokedAt IS NULL: two parallel refreshes with the same token
+        // can't both rotate it.
+        builder.Property(t => t.RevokedAt).IsConcurrencyToken();
+
         builder.HasIndex(t => t.TokenHash).IsUnique();
         builder.HasIndex(t => t.UserId);
 

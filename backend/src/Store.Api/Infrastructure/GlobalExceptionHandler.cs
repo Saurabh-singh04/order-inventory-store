@@ -28,8 +28,9 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
     {
         if (exception is OperationCanceledException && httpContext.RequestAborted.IsCancellationRequested)
         {
-            // Client went away - nothing useful to send back.
+            // Client went away - nothing useful to send back (499 = "client closed request").
             _logger.LogInformation("Request {Path} was cancelled by the client", httpContext.Request.Path);
+            httpContext.Response.StatusCode = 499;
             return true;
         }
 

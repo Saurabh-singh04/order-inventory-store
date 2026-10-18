@@ -8,7 +8,6 @@ namespace Store.Api.Controllers;
 [ApiController]
 [Route("api/reports")]
 [Authorize(Roles = SecuritySetup.AdminRole)]
-[Produces("application/json")]
 public sealed class ReportsController : ControllerBase
 {
     private readonly IReportService _reports;

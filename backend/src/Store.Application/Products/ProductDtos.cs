@@ -15,6 +15,7 @@ public sealed record ProductDto(
 public sealed class ProductQuery
 {
     /// <summary>Matches product name or SKU.</summary>
+    [StringLength(100)]
     public string? Search { get; set; }
 
     [Range(0, double.MaxValue)]

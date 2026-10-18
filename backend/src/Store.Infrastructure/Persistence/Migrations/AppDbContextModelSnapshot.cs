@@ -378,6 +378,7 @@ namespace Store.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<DateTime?>("RevokedAt")
+                        .IsConcurrencyToken()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TokenHash")

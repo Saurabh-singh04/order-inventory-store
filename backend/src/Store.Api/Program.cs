@@ -7,6 +7,7 @@ using Store.Api.Infrastructure;
 using Store.Application;
 using Store.Application.Abstractions;
 using Store.Infrastructure;
+using Store.Infrastructure.Persistence;
 using Store.Infrastructure.Persistence.Seed;
 
 Log.Logger = new LoggerConfiguration()
@@ -48,7 +49,7 @@ try
     builder.Services.AddSingleton<IOrderNotifier, SignalROrderNotifier>();
 
     builder.Services.AddSwaggerWithJwt();
-    builder.Services.AddHealthChecks();
+    builder.Services.AddHealthChecks().AddDbContextCheck<AppDbContext>("database");
 
     var corsOrigins = builder.Configuration.GetSection("Cors:Origins").Get<string[]>() ?? Array.Empty<string>();
     builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
