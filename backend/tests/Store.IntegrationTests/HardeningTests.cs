@@ -106,6 +106,29 @@ public sealed class HardeningTests
     }
 
     [Fact]
+    public async Task Dates_read_from_the_database_are_returned_as_utc()
+    {
+        var productId = await _factory.CreateProductAsync(stock: 2);
+        using var customer = await _factory.CreateClientForAsync("priya@store.local");
+        using var admin = await _factory.CreateClientForAsync("admin@store.local");
+
+        var request = new HttpRequestMessage(HttpMethod.Post, "/api/orders")
+        {
+            Content = JsonContent.Create(new { items = new[] { new { productId, quantity = 1 } } })
+        };
+        request.Headers.Add("Idempotency-Key", Guid.NewGuid().ToString());
+        using var created = JsonDocument.Parse(await (await customer.SendAsync(request)).Content.ReadAsStringAsync());
+        var orderId = created.RootElement.GetProperty("id").GetInt32();
+        await admin.PatchAsJsonAsync($"/api/orders/{orderId}/status", new { status = "Confirmed" });
+
+        // Read back from SQL Server (not the in-memory entity) - datetime2 comes back without a kind.
+        using var order = JsonDocument.Parse(await admin.GetStringAsync($"/api/orders/{orderId}"));
+
+        Assert.EndsWith("Z", order.RootElement.GetProperty("createdAt").GetString());
+        Assert.EndsWith("Z", order.RootElement.GetProperty("updatedAt").GetString());
+    }
+
+    [Fact]
     public async Task Health_endpoint_checks_the_database()
     {
         using var client = _factory.CreateClient();
