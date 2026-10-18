@@ -1,9 +1,12 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, finalize, map, shareReplay, tap, throwError } from 'rxjs';
+import { Observable, finalize, firstValueFrom, map, shareReplay, tap, throwError } from 'rxjs';
 import { AuthApiService } from '../api/auth-api.service';
 import { AuthResponse, LoginRequest, RegisterRequest, Role, User } from '../models/api.models';
-import { StoredSession, TokenStorageService } from './token-storage.service';
+import { SESSION_STORAGE_KEY, StoredSession, TokenStorageService } from './token-storage.service';
+
+/** Refresh this long before the access token actually expires. */
+const EXPIRY_MARGIN_MS = 30_000;
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -19,8 +22,42 @@ export class AuthService {
   readonly isAdmin = computed(() => this.user()?.role === 'Admin');
   readonly isCustomer = computed(() => this.user()?.role === 'Customer');
 
+  constructor() {
+    // Another tab logged in, refreshed or logged out. Picking up its tokens matters:
+    // refresh tokens rotate, so a tab still holding the old one would trigger the
+    // server's reuse detection and revoke every session.
+    if (typeof window !== 'undefined') {
+      window.addEventListener('storage', (event) => {
+        if (event.key === SESSION_STORAGE_KEY) {
+          this.session.set(this.storage.load());
+        }
+      });
+    }
+  }
+
   accessToken(): string | null {
     return this.session()?.accessToken ?? null;
+  }
+
+  /**
+   * Access token that is still valid for at least a few seconds, refreshing first if needed.
+   * Used by SignalR, which can't go through the HTTP interceptor.
+   */
+  async freshAccessToken(): Promise<string> {
+    const current = this.session();
+    if (!current) return '';
+
+    const expiresAt = Date.parse(current.accessTokenExpiresAt ?? '');
+    if (Number.isFinite(expiresAt) && expiresAt - Date.now() > EXPIRY_MARGIN_MS) {
+      return current.accessToken;
+    }
+
+    try {
+      return await firstValueFrom(this.refreshAccessToken());
+    } catch {
+      this.sessionExpired();
+      return '';
+    }
   }
 
   hasRole(role: Role): boolean {

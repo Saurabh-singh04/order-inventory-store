@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AuthResponse, User } from '../models/api.models';
 
-const STORAGE_KEY = 'store.session';
+export const SESSION_STORAGE_KEY = 'store.session';
 
 export interface StoredSession {
   accessToken: string;
+  accessTokenExpiresAt: string;
   refreshToken: string;
   user: User;
 }
@@ -14,7 +15,7 @@ export interface StoredSession {
 export class TokenStorageService {
   load(): StoredSession | null {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(SESSION_STORAGE_KEY);
       return raw ? (JSON.parse(raw) as StoredSession) : null;
     } catch {
       return null;
@@ -24,11 +25,12 @@ export class TokenStorageService {
   save(response: AuthResponse): StoredSession {
     const session: StoredSession = {
       accessToken: response.accessToken,
+      accessTokenExpiresAt: response.accessTokenExpiresAt,
       refreshToken: response.refreshToken,
       user: response.user,
     };
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+      localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(session));
     } catch {
       // storage full / disabled - session still lives in memory
     }
@@ -37,7 +39,7 @@ export class TokenStorageService {
 
   clear(): void {
     try {
-      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(SESSION_STORAGE_KEY);
     } catch {
       // ignore
     }

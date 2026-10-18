@@ -31,8 +31,8 @@ export class OrderHubService implements OnDestroy {
 
     const connection = new HubConnectionBuilder()
       .withUrl('/hubs/orders', {
-        // Read on every (re)connect so a refreshed token is picked up.
-        accessTokenFactory: () => this.auth.accessToken() ?? '',
+        // Called on every (re)connect; refreshes the JWT first if it is about to expire.
+        accessTokenFactory: () => this.auth.freshAccessToken(),
       })
       .withAutomaticReconnect()
       .configureLogging(LogLevel.Warning)

@@ -71,6 +71,11 @@ export function toProductQuery(filters: CatalogFilters): ProductQuery {
   };
 }
 
+/** Checked on the client so an impossible range doesn't cost a request (the API would return 400). */
+export function isPriceRangeInvalid(filters: CatalogFilters): boolean {
+  return filters.minPrice !== null && filters.maxPrice !== null && filters.minPrice > filters.maxPrice;
+}
+
 export function sameFilters(a: CatalogFilters, b: CatalogFilters): boolean {
   return JSON.stringify(a) === JSON.stringify(b);
 }

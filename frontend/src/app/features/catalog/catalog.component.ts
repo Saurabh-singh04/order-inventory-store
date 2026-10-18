@@ -23,7 +23,15 @@ import { PagedResult, Product } from '../../core/models/api.models';
 import { PaginationComponent } from '../../shared/components/pagination.component';
 import { EmptyStateComponent, ErrorAlertComponent, LoadingComponent } from '../../shared/components/state-views.component';
 import { ToastService } from '../../shared/toast/toast.service';
-import { CatalogFilters, SORT_OPTIONS, parseFilters, sameFilters, toProductQuery, toQueryParams } from './catalog-filters';
+import {
+  CatalogFilters,
+  SORT_OPTIONS,
+  isPriceRangeInvalid,
+  parseFilters,
+  sameFilters,
+  toProductQuery,
+  toQueryParams,
+} from './catalog-filters';
 import { ProductCardComponent } from './product-card.component';
 
 type LoadState =
@@ -80,16 +88,12 @@ type LoadState =
       }
     </section>
 
-    @if (priceRangeInvalid()) {
-      <div class="alert alert-warning">Min price is higher than max price.</div>
-    }
-
     @switch (state().status) {
       @case ('loading') {
         <app-loading label="Loading products…" />
       }
       @case ('error') {
-        <app-error-alert [message]="errorMessage()" (retry)="reload()" />
+        <app-error-alert [message]="errorMessage()" [retryable]="!isPriceRangeInvalid(filters())" (retry)="reload()" />
       }
       @case ('ok') {
         @if (data(); as page) {
@@ -127,6 +131,7 @@ export class CatalogComponent {
   protected readonly auth = inject(AuthService);
 
   protected readonly sortOptions = SORT_OPTIONS;
+  protected readonly isPriceRangeInvalid = isPriceRangeInvalid;
 
   private readonly initial = parseFilters(this.route.snapshot.queryParams);
   protected readonly search = new FormControl(this.initial.search, { nonNullable: true });
@@ -143,17 +148,19 @@ export class CatalogComponent {
     distinctUntilChanged(sameFilters),
   );
 
-  private readonly filters = toSignal(this.filters$, { initialValue: this.initial });
+  protected readonly filters = toSignal(this.filters$, { initialValue: this.initial });
 
   protected readonly state = toSignal(
     combineLatest([this.filters$, this.reload$]).pipe(
       // switchMap drops the previous request when filters change quickly.
       switchMap(([filters]) =>
-        this.api.list(toProductQuery(filters)).pipe(
-          map((data): LoadState => ({ status: 'ok', data })),
-          catchError((err) => of<LoadState>({ status: 'error', message: toApiError(err).message })),
-          startWith<LoadState>({ status: 'loading' }),
-        ),
+        isPriceRangeInvalid(filters)
+          ? of<LoadState>({ status: 'error', message: 'Min price cannot be higher than max price.' })
+          : this.api.list(toProductQuery(filters)).pipe(
+              map((data): LoadState => ({ status: 'ok', data })),
+              catchError((err) => of<LoadState>({ status: 'error', message: toApiError(err).message })),
+              startWith<LoadState>({ status: 'loading' }),
+            ),
       ),
     ),
     { initialValue: { status: 'loading' } as LoadState },
@@ -203,11 +210,6 @@ export class CatalogComponent {
   protected hasFilters(): boolean {
     const f = this.filters();
     return !!f.search || f.minPrice !== null || f.maxPrice !== null || f.inStock || f.sort !== 'name-asc';
-  }
-
-  protected priceRangeInvalid(): boolean {
-    const f = this.filters();
-    return f.minPrice !== null && f.maxPrice !== null && f.minPrice > f.maxPrice;
   }
 
   protected goToPage(page: number): void {
