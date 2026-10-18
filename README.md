@@ -144,6 +144,11 @@ Current results:
   top to bottom without editing anything.
 - `Store.local.postman_environment.json` – `baseUrl` (`http://localhost:5080`) and the seeded logins.
 
+**[docs/API_REFERENCE.md](docs/API_REFERENCE.md)** lists every endpoint (same order as Swagger) with the
+request JSON and every response it can return – all real bodies captured from a run against the local API,
+including the last-unit race (201 + 409). Swagger's "Try it out" is also pre-filled with working example
+bodies, and each endpoint lists all of its status codes.
+
 Import both into Postman and run the collection with the Collection Runner, or from the command line
 while the API is running:
 
