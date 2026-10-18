@@ -1,7 +1,7 @@
-# Runs SQL Server, the API and the Angular client:
+# Runs SQL Server, the API and the Angular frontend:
 #   cp .env.example .env   (then set your own values)
 #   docker compose up --build
-# Client: http://localhost:8080   API / Swagger: http://localhost:5080/swagger
+# Frontend: http://localhost:8080   API / Swagger: http://localhost:5080/swagger
 
 services:
   db:
@@ -36,8 +36,8 @@ services:
     ports:
       - "5080:8080"
 
-  client:
-    build: ./client
+  frontend:
+    build: ./frontend
     depends_on:
       - api
     ports:

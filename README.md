@@ -16,7 +16,7 @@ backend/
   tests/
     Store.UnitTests        xUnit – rules 1, 3, 4, 5 (+ auto-cancel job)
     Store.IntegrationTests WebApplicationFactory + real SQL Server – rule 2 race, idempotency race, auth
-client/                    Angular app
+frontend/                    Angular app
 QUERIES.sql                Part B
 REVIEW.md                  Part C
 docker-compose.yml
@@ -62,12 +62,12 @@ is ready to use.
 ### Client
 
 ```bash
-cd client
+cd frontend
 npm install
 npm start          # ng serve on http://localhost:4200
 ```
 
-`ng serve` proxies `/api` and `/hubs` to `http://localhost:5080` (`client/proxy.conf.json`), so there is
+`ng serve` proxies `/api` and `/hubs` to `http://localhost:5080` (`frontend/proxy.conf.json`), so there is
 no CORS setup needed in development.
 
 ### Docker (bonus)
@@ -113,7 +113,7 @@ cd backend
 dotnet test tests/Store.UnitTests
 dotnet test tests/Store.IntegrationTests
 
-cd ../client
+cd ../frontend
 npm test            # Karma, watches
 npm run test:ci     # single headless run
 ```
