@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Only the endpoints are documented; don't warn for every public member. -->
+    <NoWarn>$(NoWarn);1591</NoWarn>
     <UserSecretsId>store-api-7f3c2a1e-5b8d-4c6e-9a0f-2d4b6e8c1a3f</UserSecretsId>
   </PropertyGroup>
 

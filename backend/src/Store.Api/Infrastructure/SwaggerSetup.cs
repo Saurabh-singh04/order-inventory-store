@@ -27,6 +27,15 @@ public static class SwaggerSetup
                 Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             };
 
+            // Controller /// summaries show up as endpoint descriptions.
+            var xmlFile = Path.Combine(AppContext.BaseDirectory, $"{typeof(SwaggerSetup).Assembly.GetName().Name}.xml");
+            if (File.Exists(xmlFile))
+                options.IncludeXmlComments(xmlFile);
+
+            options.SchemaFilter<RequestExamplesSchemaFilter>();
+            options.OperationFilter<IdempotencyKeyOperationFilter>();
+            options.OperationFilter<AuthResponsesOperationFilter>();
+
             options.AddSecurityDefinition("Bearer", scheme);
             options.AddSecurityRequirement(new OpenApiSecurityRequirement { [scheme] = Array.Empty<string>() });
         });

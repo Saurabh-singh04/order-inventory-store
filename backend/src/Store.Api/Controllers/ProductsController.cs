@@ -21,6 +21,7 @@ public sealed class ProductsController : ControllerBase
     [HttpGet]
     [AllowAnonymous]
     [ProducesResponseType<PagedResult<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<PagedResult<ProductDto>>> GetProducts([FromQuery] ProductQuery query, CancellationToken cancellationToken) =>
         Ok(await _products.GetProductsAsync(query, IsAdmin, cancellationToken));
 
@@ -45,6 +46,7 @@ public sealed class ProductsController : ControllerBase
     [HttpPut("{id:int}")]
     [Authorize(Roles = SecuritySetup.AdminRole)]
     [ProducesResponseType<ProductDto>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ValidationProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
     public async Task<ActionResult<ProductDto>> Update(int id, UpdateProductRequest request, CancellationToken cancellationToken) =>
