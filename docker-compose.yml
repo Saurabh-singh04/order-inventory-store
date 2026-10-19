@@ -1,7 +1,7 @@
 # Runs SQL Server, the API and the Angular frontend:
 #   cp .env.example .env   (then set your own values)
 #   docker compose up --build
-# Frontend: http://localhost:8080   API / Swagger: http://localhost:5080/swagger
+# Frontend: http://localhost:8080   API: http://localhost:8080/api   Swagger: http://localhost:8080/swagger
 
 services:
   db:
@@ -33,8 +33,11 @@ services:
       Seed__AdminPassword: ${SEED_ADMIN_PASSWORD:-Admin@123}
       Seed__CustomerPassword: ${SEED_CUSTOMER_PASSWORD:-Customer@123}
       ForwardedHeaders__Enabled: "true"
-    ports:
-      - "5080:8080"
+    # No published port on purpose: the API is only reachable through the frontend's nginx,
+    # which sets X-Forwarded-For. Publishing it would let clients send their own
+    # X-Forwarded-For and dodge the per-IP login rate limit.
+    expose:
+      - "8080"
 
   frontend:
     build: ./frontend
