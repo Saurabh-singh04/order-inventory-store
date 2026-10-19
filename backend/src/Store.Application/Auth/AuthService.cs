@@ -186,14 +186,12 @@ public sealed class AuthService : IAuthService
     private async Task RevokeAllForUserAsync(int userId, CancellationToken cancellationToken)
     {
         var now = UtcNow;
-        var active = await _db.RefreshTokens
+
+        // One set-based UPDATE ... WHERE RevokedAt IS NULL. Several requests can detect the same reuse
+        // at once; loading + saving entities would make them trip over the RevokedAt concurrency token.
+        await _db.RefreshTokens
             .Where(t => t.UserId == userId && t.RevokedAt == null)
-            .ToListAsync(cancellationToken);
-
-        foreach (var token in active)
-            token.RevokedAt = now;
-
-        await _db.SaveChangesAsync(cancellationToken);
+            .ExecuteUpdateAsync(s => s.SetProperty(t => t.RevokedAt, now), cancellationToken);
     }
 
     private DateTime UtcNow => _clock.GetUtcNow().UtcDateTime;
