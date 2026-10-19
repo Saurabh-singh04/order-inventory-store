@@ -77,8 +77,11 @@ cp .env.example .env      # set your own SQL and JWT values
 docker compose up --build
 ```
 
-- Frontend: http://localhost:8080 (nginx also proxies `/api` and `/hubs` to the API)
-- API / Swagger: http://localhost:5080/swagger
+- Frontend: http://localhost:8080
+- API and Swagger through the same nginx: http://localhost:8080/api/..., http://localhost:8080/swagger
+
+The API container has no published port: everything goes through nginx, which sets `X-Forwarded-For`.
+That way the login rate limiter sees the real client IP and a client can't fake one by calling the API directly.
 - SQL Server: `localhost,14333`
 
 ---
@@ -129,9 +132,9 @@ Current results:
 
 | Suite | Tests |
 |---|---|
-| Store.UnitTests | 40 passing (DiscountCalculator, status transitions, place order, idempotency, status change + auto-cancel) |
-| Store.IntegrationTests | 18 passing (last-unit race ×5 rounds → one 201 / one 409, parallel same-key requests, rate limit, ownership, 400 on invalid transition, role checks, refresh rotation + reuse detection, parallel register/refresh, paging edge cases, DB health check) |
-| Angular (Karma/Jasmine) | 19 passing (interceptor refresh/retry, auth token refresh for SignalR, cart service, catalogue URL filters, error mapping) |
+| Store.UnitTests | 41 passing (DiscountCalculator, status transitions, place order, idempotency, status change + auto-cancel) |
+| Store.IntegrationTests | 21 passing (last-unit race ×5 rounds → one 201 / one 409, parallel buyers with enough stock → all 201, rule 1 rollback on SQL Server, parallel same-key requests, rate limit, ownership, 400 on invalid transition, role checks, refresh rotation + reuse detection, parallel register/refresh, paging edge cases, UTC dates, DB health check) |
+| Angular (Karma/Jasmine) | 20 passing (interceptor refresh/retry, auth token refresh for SignalR, cart service, catalogue URL filters, error mapping) |
 | Postman / Newman | 65 requests, 124 assertions passing against the running API |
 
 ### Postman collection (manual / end-to-end testing)
@@ -244,14 +247,20 @@ WHERE [Id] = @p1 AND [RowVersion] = @p2;
 ```
 
 Both requests read stock = 1 with the same row version. The first commit changes the row version,
-so the second `UPDATE` matches 0 rows and EF throws `DbUpdateConcurrencyException`. The service
-catches it, rolls back and throws `ConflictException("...", "out_of_stock")`, which the exception
-handler returns as **409 ProblemDetails** (not 500). If the second request reads after the first
-commit, it sees stock 0 and gets the same 409 from the normal stock check.
+so the second `UPDATE` matches 0 rows and EF throws `DbUpdateConcurrencyException` – nothing of the
+second order is saved (its transaction is rolled back).
 
-EF Core creates the database with `READ_COMMITTED_SNAPSHOT ON`, so readers don't block each other
-and the race really goes through the RowVersion path. In the integration test all 5 rounds hit
-`DbUpdateConcurrencyException` and returned one 201 and one 409.
+The service then **re-reads and retries** (up to 3 attempts). This matters: a RowVersion conflict only
+means *someone else changed the row*, not that the stock is gone. With 10 units and two buyers the
+retry succeeds and both get 201 (covered by `Parallel_orders_all_succeed_while_there_is_enough_stock`).
+For the last unit the retry finds stock 0 and the normal stock check answers
+**409 ProblemDetails** with `code: "out_of_stock"` – never a 500. If the retries are exhausted under
+heavy contention the answer is 409 with `code: "concurrency"` ("please try again").
+
+EF Core creates the database with `READ_COMMITTED_SNAPSHOT ON`, so readers don't block each other and
+both requests really do read the same row version – the API log shows the loser's
+`Stock changed while placing an order ...; retrying` line. The integration test asserts the outcome
+(one 201, one 409, stock 0, one order line) over 5 rounds.
 
 `Order` also has a `RowVersion`: without it, the customer cancelling and the background job
 cancelling the same order at the same moment could both restore stock. Status changes retry up to
@@ -272,8 +281,9 @@ and stock is restored exactly once.
      (including its stock change) is rolled back, and it returns the winner's order. The parallel
      integration test sends 3 requests with the same key: one 201, two 200, same order id, stock
      reduced once.
-- The key is required (400 without it). I chose that over "optional" because a checkout without
-  protection is exactly the bug the header is meant to prevent.
+- The header is optional, as the brief says the endpoint *accepts* it: without a key the order is
+  placed normally, with no duplicate protection. Keys longer than 100 characters are rejected (400).
+  The Angular client always sends one.
 
 On the client, the cart keeps a `checkoutKey` (UUID) that only changes when the cart contents change.
 Retries, double clicks and even a page refresh during checkout all send the same key. The
@@ -336,8 +346,9 @@ running.
 
 ### Edge cases handled
 
-These came out of reviewing the code against production traffic rather than the happy path; each
-one has a test.
+These came out of reviewing the code against production traffic rather than the happy path. The
+first six, and the UTC dates, are covered by integration tests; the rest are small guards (validation
+attributes, cache options, a `storage` listener) that are easier to check by reading the code.
 
 | Case | Without handling | Now |
 |---|---|---|
@@ -350,7 +361,9 @@ one has a test.
 | Order with thousands of lines | huge `IN (...)` query | max 50 distinct products per order |
 | Two browser tabs and rotating refresh tokens | a tab refreshing with the old token trips reuse detection and logs the user out everywhere | tabs share the session through the `storage` event |
 | SignalR reconnect after the access token expired | negotiate fails with 401 | the hub's `accessTokenFactory` refreshes the token first |
-| Validation errors on controllers with `[Produces("application/json")]` | returned as `application/json` | always `application/problem+json` |
+| Two buyers, plenty of stock, same moment | the RowVersion loser got 409 "out of stock" although units were left | conflict → re-read and retry; 409 only when stock is really short |
+| Dates read back from SQL Server (`datetime2`) | serialized without `Z`, shown 5½ h off in the browser | read as UTC, always serialized with `Z` |
+| Login brute force through Docker | API port published, `X-Forwarded-For` could be spoofed per request | API only reachable through nginx |
 
 ---
 
@@ -432,7 +445,7 @@ ROW_NUMBER vs DENSE_RANK, integer AVG, sargable date ranges).
   at-least-once.
 - **GitHub Actions** – `.github/workflows/ci.yml` builds the backend, runs unit tests and the
   integration tests against a SQL Server service container, then builds and tests the client.
-- **Frontend unit tests** – 13 Jasmine specs.
+- **Frontend unit tests** – 20 Jasmine specs.
 
 ---
 
@@ -475,4 +488,4 @@ ROW_NUMBER vs DENSE_RANK, integer AVG, sargable date ranges).
 - Trust `X-Forwarded-For` only from the known proxy network, not from any address (now only enabled in Docker).
 - Full-text search for product names (`LIKE '%x%'` can't use an index), plus product images and categories.
 - Playwright end-to-end tests for checkout and the concurrency flow.
-- API versioning, health checks for the database, and OpenTelemetry tracing.
+- API versioning and OpenTelemetry tracing.

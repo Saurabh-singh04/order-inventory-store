@@ -198,7 +198,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDA1IiwiZW1haWwiOiJ0ZXN0ZXIuMTc5MjMyNTg4NTM2NUBzdG9yZS5sb2NhbCIsIm5hbWUiOiJQb3N0bWFuIFRlc3RlciIsImp0aSI6IjA2NWY0YThlMWRlNjRmNjU4ZGZjN2Y2ZWJhOWZiNjFlIiwicm9sZSI6IkN1c3RvbWVyIiwiYXVkIjoiU3RvcmUuQ2xpZW50IiwiaXNzIjoiU3RvcmUuQXBpIiwiZXhwIjoxNzkyMzI2Nzg2LCJpYXQiOjE3OTIzMjU4ODYsIm5iZiI6MTc5MjMyNTg4Nn0.U43xii1q8oXtLKI3yGtVX48LIRESl2Fb91TGH_qp-ts\",\n  \"accessTokenExpiresAt\": \"2026-10-18T12:33:06.2993484Z\",\n  \"refreshToken\": \"dQHT0jSKpKKutoiKq_hZ1thVEXoHhrmKxS0pKOSBcBX08_nXi95EXkLWnTfIIZ2FFkno4a13aFOt7pcH9PBXGg\",\n  \"refreshTokenExpiresAt\": \"2026-10-25T12:18:06.2989065Z\",\n  \"user\": {\n    \"id\": 1005,\n    \"fullName\": \"Postman Tester\",\n    \"email\": \"tester.1792325885365@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
+              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...\",\n  \"accessTokenExpiresAt\": \"2026-10-19T06:35:34.3876698Z\",\n  \"refreshToken\": \"TVTIcvH8ztSj4BsfQoqxdMtcum2e_4Pi...\",\n  \"refreshTokenExpiresAt\": \"2026-10-26T06:20:34.3876668Z\",\n  \"user\": {\n    \"id\": 1010,\n    \"fullName\": \"Postman Tester\",\n    \"email\": \"tester.1792390833652@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
             }
           ]
         },
@@ -305,7 +305,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"An account with this email already exists.\",\n  \"instance\": \"/api/auth/register\",\n  \"code\": \"email_taken\",\n  \"traceId\": \"0HNPD2788O5QR:00000003\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"An account with this email already exists.\",\n  \"instance\": \"/api/auth/register\",\n  \"code\": \"email_taken\",\n  \"traceId\": \"0HNPDL3AT80M6:00000003\"\n}"
             }
           ]
         },
@@ -399,7 +399,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Email\": [\n      \"The Email field is not a valid e-mail address.\"\n    ],\n    \"FullName\": [\n      \"The field FullName must be a string with a minimum length of 2 and a maximum length of 100.\"\n    ],\n    \"Password\": [\n      \"The field Password must be a string with a minimum length of 8 and a maximum length of 100.\"\n    ]\n  },\n  \"traceId\": \"0HNPD2788O5QR:00000004\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Email\": [\n      \"The Email field is not a valid e-mail address.\"\n    ],\n    \"FullName\": [\n      \"The field FullName must be a string with a minimum length of 2 and a maximum length of 100.\"\n    ],\n    \"Password\": [\n      \"The field Password must be a string with a minimum length of 8 and a maximum length of 100.\"\n    ]\n  },\n  \"traceId\": \"0HNPDL3AT80M6:00000004\"\n}"
             }
           ]
         },
@@ -496,7 +496,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhZG1pbkBzdG9yZS5sb2NhbCIsIm5hbWUiOiJTdG9yZSBBZG1pbiIsImp0aSI6IjU5ZGI5NzcxMjEzNjQyYjE5ZGYwZDUxOGZjOGEzYjFiIiwicm9sZSI6IkFkbWluIiwiYXVkIjoiU3RvcmUuQ2xpZW50IiwiaXNzIjoiU3RvcmUuQXBpIiwiZXhwIjoxNzkyMzI2Nzg3LCJpYXQiOjE3OTIzMjU4ODcsIm5iZiI6MTc5MjMyNTg4N30.qjj1nDGJGaSg_HgeD9Z-RJQsYbR7Ro60fOH3m8CIygI\",\n  \"accessTokenExpiresAt\": \"2026-10-18T12:33:07.0459525Z\",\n  \"refreshToken\": \"utjvtPIwo2CmTJ45PKv_piC96f0iljZo67p9s0V-cdJ9JAQpLBn5eFPBQ2SaGC4UssKAnZyjIcqjFmRX948ODg\",\n  \"refreshTokenExpiresAt\": \"2026-10-25T12:18:07.0459083Z\",\n  \"user\": {\n    \"id\": 1,\n    \"fullName\": \"Store Admin\",\n    \"email\": \"admin@store.local\",\n    \"role\": \"Admin\"\n  }\n}"
+              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...\",\n  \"accessTokenExpiresAt\": \"2026-10-19T06:35:35.1860196Z\",\n  \"refreshToken\": \"Mw4yoBkZ1I2e6G4oLtBx4eGax9QX9o3n...\",\n  \"refreshTokenExpiresAt\": \"2026-10-26T06:20:35.1860172Z\",\n  \"user\": {\n    \"id\": 1,\n    \"fullName\": \"Store Admin\",\n    \"email\": \"admin@store.local\",\n    \"role\": \"Admin\"\n  }\n}"
             }
           ]
         },
@@ -594,7 +594,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJhYXJhdkBzdG9yZS5sb2NhbCIsIm5hbWUiOiJBYXJhdiBTaGFybWEiLCJqdGkiOiI0ZDg3ODg1NTJjZDE0Y2NjYjc1ZTJiMjQ4M2FmYjA3YSIsInJvbGUiOiJDdXN0b21lciIsImF1ZCI6IlN0b3JlLkNsaWVudCIsImlzcyI6IlN0b3JlLkFwaSIsImV4cCI6MTc5MjMyNjc4NywiaWF0IjoxNzkyMzI1ODg3LCJuYmYiOjE3OTIzMjU4ODd9.OiaZmHZuog0LE7PIGcjleEbZQC58vH2xx-jOr3JjfMs\",\n  \"accessTokenExpiresAt\": \"2026-10-18T12:33:07.3237895Z\",\n  \"refreshToken\": \"45Gt3EzoaQiiKC4e-ncajRVOqsGNBMtfTDi11r0zT7ycRvNjs8COks2_kanTNKLxzw8TUZk8F5sb4xko2-6rZQ\",\n  \"refreshTokenExpiresAt\": \"2026-10-25T12:18:07.3237872Z\",\n  \"user\": {\n    \"id\": 2,\n    \"fullName\": \"Aarav Sharma\",\n    \"email\": \"aarav@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
+              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...\",\n  \"accessTokenExpiresAt\": \"2026-10-19T06:35:35.6444195Z\",\n  \"refreshToken\": \"xhCej-u6SjKTlcnIX6pEBFQastlaYU94...\",\n  \"refreshTokenExpiresAt\": \"2026-10-26T06:20:35.644417Z\",\n  \"user\": {\n    \"id\": 2,\n    \"fullName\": \"Aarav Sharma\",\n    \"email\": \"aarav@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
             }
           ]
         },
@@ -700,7 +700,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Invalid email or password.\",\n  \"instance\": \"/api/auth/login\",\n  \"traceId\": \"0HNPD2788O5QR:00000007\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Invalid email or password.\",\n  \"instance\": \"/api/auth/login\",\n  \"traceId\": \"0HNPDL3AT80M6:00000007\"\n}"
             }
           ]
         },
@@ -799,7 +799,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDA1IiwiZW1haWwiOiJ0ZXN0ZXIuMTc5MjMyNTg4NTM2NUBzdG9yZS5sb2NhbCIsIm5hbWUiOiJQb3N0bWFuIFRlc3RlciIsImp0aSI6IjAwOTVhOTIyMzU4YzRiN2NiYzI5ZGE5YmI3YmMxMDgzIiwicm9sZSI6IkN1c3RvbWVyIiwiYXVkIjoiU3RvcmUuQ2xpZW50IiwiaXNzIjoiU3RvcmUuQXBpIiwiZXhwIjoxNzkyMzI2Nzg3LCJpYXQiOjE3OTIzMjU4ODcsIm5iZiI6MTc5MjMyNTg4N30.rztDpCCrjtsUqa2FUDYLx2XhW9wX9UgOlxKHq13BX-M\",\n  \"accessTokenExpiresAt\": \"2026-10-18T12:33:07.7506785Z\",\n  \"refreshToken\": \"EGwo2yvQdnw0HdeMPMTgG1FBB_KwdHt6DTqoxREsb-3D6SAwVrf_LGkP6ki8mgW0plkpi_csuq7IUqwIjj4qBQ\",\n  \"refreshTokenExpiresAt\": \"2026-10-25T12:18:07.7506777Z\",\n  \"user\": {\n    \"id\": 1005,\n    \"fullName\": \"Postman Tester\",\n    \"email\": \"tester.1792325885365@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
+              "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpX...\",\n  \"accessTokenExpiresAt\": \"2026-10-19T06:35:36.3082076Z\",\n  \"refreshToken\": \"0CfMBsQXJZ15pSkJh-v_LGvquwMwbhwU...\",\n  \"refreshTokenExpiresAt\": \"2026-10-26T06:20:36.3082056Z\",\n  \"user\": {\n    \"id\": 1010,\n    \"fullName\": \"Postman Tester\",\n    \"email\": \"tester.1792390833652@store.local\",\n    \"role\": \"Customer\"\n  }\n}"
             }
           ]
         },
@@ -905,7 +905,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Refresh token is invalid or expired.\",\n  \"instance\": \"/api/auth/refresh\",\n  \"traceId\": \"0HNPD2788O5QR:00000009\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Refresh token is invalid or expired.\",\n  \"instance\": \"/api/auth/refresh\",\n  \"traceId\": \"0HNPDL3AT80M6:00000009\"\n}"
             }
           ]
         },
@@ -1010,7 +1010,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Refresh token is invalid or expired.\",\n  \"instance\": \"/api/auth/refresh\",\n  \"traceId\": \"0HNPD2788O5QR:0000000A\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Refresh token is invalid or expired.\",\n  \"instance\": \"/api/auth/refresh\",\n  \"traceId\": \"0HNPDL3AT80M6:0000000A\"\n}"
             }
           ]
         },
@@ -1164,7 +1164,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/orders/my\",\n  \"traceId\": \"0HNPD2788O5QR:0000000C\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/orders/my\",\n  \"traceId\": \"0HNPDL3AT80M6:0000000C\"\n}"
             }
           ]
         }
@@ -1239,7 +1239,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": 11,\n      \"sku\": \"ACC-4004\",\n      \"name\": \"1TB Portable SSD\",\n      \"price\": 7499.0,\n      \"stockQuantity\": 18,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9s=\"\n    },\n    {\n      \"id\": 14,\n      \"sku\": \"TAB-7001\",\n      \"name\": \"Apple iPad 10th Gen\",\n      \"price\": 34900.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB94=\"\n    },\n    {\n      \"id\": 5,\n      \"sku\": \"AUD-3001\",\n      \"name\": \"boAt Rockerz 450 Headphones\",\n      \"price\": 1499.0,\n      \"stockQuantity\": 58,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB+I=\"\n    },\n    {\n      \"id\": 12,\n      \"sku\": \"MON-5001\",\n      \"name\": \"Dell 27\\\" 4K Monitor\",\n      \"price\": 32499.0,\n      \"stockQuantity\": 6,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9w=\"\n    },\n    {\n      \"id\": 2,\n      \"sku\": \"LAP-1002\",\n      \"name\": \"HP Pavilion 14 Laptop\",\n      \"price\": 64990.0,\n      \"stockQuantity\": 8,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9I=\"\n    },\n    {\n      \"id\": 7,\n      \"sku\": \"AUD-3003\",\n      \"name\": \"JBL Flip 6 Bluetooth Speaker\",\n      \"price\": 9999.0,\n      \"stockQuantity\": 15,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9c=\"\n    },\n    {\n      \"id\": 1001,\n      \"sku\": \"LAST-1792324676694\",\n      \"name\": \"Last Unit Gadget 1792324676694\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T11:58:00.2114175Z\",\n      \"rowVersion\": \"AAAAAAAAJxk=\"\n    },\n    {\n      \"id\": 1003,\n      \"sku\": \"LAST-1792324815161\",\n      \"name\": \"Last Unit Gadget 1792324815161\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:00:17.8918968Z\",\n      \"rowVersion\": \"AAAAAAAAJyQ=\"\n    },\n    {\n      \"id\": 1005,\n      \"sku\": \"LAST-1792325194792\",\n      \"name\": \"Last Unit Gadget 1792325194792\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:06:41.3713313Z\",\n      \"rowVersion\": \"AAAAAAAAJy8=\"\n    },\n    {\n      \"id\": 1,\n      \"sku\": \"LAP-1001\",\n      \"name\": \"Lenovo IdeaPad Slim 5 Laptop\",\n      \"price\": 58999.0,\n      \"stockQuantity\": 11,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB+E=\"\n    },\n    {\n      \"id\": 8,\n      \"sku\": \"ACC-4001\",\n      \"name\": \"Logitech MX Master 3S Mouse\",\n      \"price\": 8995.0,\n      \"stockQuantity\": 30,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9g=\"\n    },\n    {\n      \"id\": 9,\n      \"sku\": \"ACC-4002\",\n      \"name\": \"Mechanical Keyboard (Blue Switch)\",\n      \"price\": 3499.0,\n      \"stockQuantity\": 40,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9k=\"\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 12,\n  \"totalCount\": 21,\n  \"totalPages\": 2\n}"
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 11,\n      \"sku\": \"ACC-4004\",\n      \"name\": \"1TB Portable SSD\",\n      \"price\": 7499.0,\n      \"stockQuantity\": 18,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9s=\"\n    },\n    {\n      \"id\": 14,\n      \"sku\": \"TAB-7001\",\n      \"name\": \"Apple iPad 10th Gen\",\n      \"price\": 34900.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB94=\"\n    },\n    {\n      \"id\": 5,\n      \"sku\": \"AUD-3001\",\n      \"name\": \"boAt Rockerz 450 Headphones\",\n      \"price\": 1499.0,\n      \"stockQuantity\": 58,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB+I=\"\n    },\n    {\n      \"id\": 12,\n      \"sku\": \"MON-5001\",\n      \"name\": \"Dell 27\\\" 4K Monitor\",\n      \"price\": 32499.0,\n      \"stockQuantity\": 6,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9w=\"\n    },\n    {\n      \"id\": 2,\n      \"sku\": \"LAP-1002\",\n      \"name\": \"HP Pavilion 14 Laptop\",\n      \"price\": 64990.0,\n      \"stockQuantity\": 8,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9I=\"\n    },\n    {\n      \"id\": 7,\n      \"sku\": \"AUD-3003\",\n      \"name\": \"JBL Flip 6 Bluetooth Speaker\",\n      \"price\": 9999.0,\n      \"stockQuantity\": 15,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9c=\"\n    },\n    {\n      \"id\": 1001,\n      \"sku\": \"LAST-1792324676694\",\n      \"name\": \"Last Unit Gadget 1792324676694\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T11:58:00.2114175Z\",\n      \"rowVersion\": \"AAAAAAAAJxk=\"\n    },\n    {\n      \"id\": 1003,\n      \"sku\": \"LAST-1792324815161\",\n      \"name\": \"Last Unit Gadget 1792324815161\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:00:17.8918968Z\",\n      \"rowVersion\": \"AAAAAAAAJyQ=\"\n    },\n    {\n      \"id\": 1005,\n      \"sku\": \"LAST-1792325194792\",\n      \"name\": \"Last Unit Gadget 1792325194792\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:06:41.3713313Z\",\n      \"rowVersion\": \"AAAAAAAAJy8=\"\n    },\n    {\n      \"id\": 1007,\n      \"sku\": \"LAST-1792325885365\",\n      \"name\": \"Last Unit Gadget 1792325885365\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:18:09.546633Z\",\n      \"rowVersion\": \"AAAAAAAAJzw=\"\n    },\n    {\n      \"id\": 1,\n      \"sku\": \"LAP-1001\",\n      \"name\": \"Lenovo IdeaPad Slim 5 Laptop\",\n      \"price\": 58999.0,\n      \"stockQuantity\": 11,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB+E=\"\n    },\n    {\n      \"id\": 8,\n      \"sku\": \"ACC-4001\",\n      \"name\": \"Logitech MX Master 3S Mouse\",\n      \"price\": 8995.0,\n      \"stockQuantity\": 30,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9g=\"\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 12,\n  \"totalCount\": 25,\n  \"totalPages\": 3\n}"
             }
           ]
         },
@@ -1462,7 +1462,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": 7,\n      \"sku\": \"AUD-3003\",\n      \"name\": \"JBL Flip 6 Bluetooth Speaker\",\n      \"price\": 9999.0,\n      \"stockQuantity\": 15,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9c=\"\n    },\n    {\n      \"id\": 1001,\n      \"sku\": \"LAST-1792324676694\",\n      \"name\": \"Last Unit Gadget 1792324676694\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T11:58:00.2114175Z\",\n      \"rowVersion\": \"AAAAAAAAJxk=\"\n    },\n    {\n      \"id\": 1003,\n      \"sku\": \"LAST-1792324815161\",\n      \"name\": \"Last Unit Gadget 1792324815161\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:00:17.8918968Z\",\n      \"rowVersion\": \"AAAAAAAAJyQ=\"\n    },\n    {\n      \"id\": 1005,\n      \"sku\": \"LAST-1792325194792\",\n      \"name\": \"Last Unit Gadget 1792325194792\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:06:41.3713313Z\",\n      \"rowVersion\": \"AAAAAAAAJy8=\"\n    },\n    {\n      \"id\": 1,\n      \"sku\": \"LAP-1001\",\n      \"name\": \"Lenovo IdeaPad Slim 5 Laptop\",\n      \"price\": 58999.0,\n      \"stockQuantity\": 11,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB+E=\"\n    }\n  ],\n  \"page\": 2,\n  \"pageSize\": 5,\n  \"totalCount\": 21,\n  \"totalPages\": 5\n}"
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 7,\n      \"sku\": \"AUD-3003\",\n      \"name\": \"JBL Flip 6 Bluetooth Speaker\",\n      \"price\": 9999.0,\n      \"stockQuantity\": 15,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB9c=\"\n    },\n    {\n      \"id\": 1001,\n      \"sku\": \"LAST-1792324676694\",\n      \"name\": \"Last Unit Gadget 1792324676694\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T11:58:00.2114175Z\",\n      \"rowVersion\": \"AAAAAAAAJxk=\"\n    },\n    {\n      \"id\": 1003,\n      \"sku\": \"LAST-1792324815161\",\n      \"name\": \"Last Unit Gadget 1792324815161\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:00:17.8918968Z\",\n      \"rowVersion\": \"AAAAAAAAJyQ=\"\n    },\n    {\n      \"id\": 1005,\n      \"sku\": \"LAST-1792325194792\",\n      \"name\": \"Last Unit Gadget 1792325194792\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:06:41.3713313Z\",\n      \"rowVersion\": \"AAAAAAAAJy8=\"\n    },\n    {\n      \"id\": 1007,\n      \"sku\": \"LAST-1792325885365\",\n      \"name\": \"Last Unit Gadget 1792325885365\",\n      \"price\": 1500.0,\n      \"stockQuantity\": 1,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-18T12:18:09.546633Z\",\n      \"rowVersion\": \"AAAAAAAAJzw=\"\n    }\n  ],\n  \"page\": 2,\n  \"pageSize\": 5,\n  \"totalCount\": 25,\n  \"totalPages\": 5\n}"
             }
           ]
         },
@@ -1538,7 +1538,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": 15,\n      \"sku\": \"CAM-8001\",\n      \"name\": \"Webcam Full HD 1080p\",\n      \"price\": 2199.0,\n      \"stockQuantity\": 0,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB98=\"\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 12,\n  \"totalCount\": 1,\n  \"totalPages\": 1\n}"
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 1010,\n      \"sku\": \"RACE-1036818279\",\n      \"name\": \"Race Demo Item\",\n      \"price\": 999.0,\n      \"stockQuantity\": 0,\n      \"isActive\": true,\n      \"createdAt\": \"2026-10-19T06:18:50.9760273Z\",\n      \"rowVersion\": \"AAAAAAAAJ1E=\"\n    },\n    {\n      \"id\": 15,\n      \"sku\": \"CAM-8001\",\n      \"name\": \"Webcam Full HD 1080p\",\n      \"price\": 2199.0,\n      \"stockQuantity\": 0,\n      \"isActive\": true,\n      \"createdAt\": \"2026-01-01T00:00:00Z\",\n      \"rowVersion\": \"AAAAAAAAB98=\"\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 12,\n  \"totalCount\": 2,\n  \"totalPages\": 1\n}"
             }
           ]
         },
@@ -1634,7 +1634,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"minPrice cannot be greater than maxPrice.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPD2788O5QR:00000011\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"minPrice cannot be greater than maxPrice.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPDL3AT80M6:00000011\"\n}"
             }
           ]
         },
@@ -1778,7 +1778,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Product '999999' was not found.\",\n  \"instance\": \"/api/products/999999\",\n  \"traceId\": \"0HNPD2788O5QR:00000013\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Product '999999' was not found.\",\n  \"instance\": \"/api/products/999999\",\n  \"traceId\": \"0HNPDL3AT80M6:00000013\"\n}"
             }
           ]
         },
@@ -1889,10 +1889,10 @@
                 },
                 {
                   "key": "Location",
-                  "value": "http://localhost:5080/api/products/1007"
+                  "value": "http://localhost:5080/api/products/1011"
                 }
               ],
-              "body": "{\n  \"id\": 1007,\n  \"sku\": \"LAST-1792325885365\",\n  \"name\": \"Last Unit Gadget 1792325885365\",\n  \"price\": 1500,\n  \"stockQuantity\": 1,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.546633Z\",\n  \"rowVersion\": \"AAAAAAAAJzw=\"\n}"
+              "body": "{\n  \"id\": 1011,\n  \"sku\": \"LAST-1792390833652\",\n  \"name\": \"Last Unit Gadget 1792390833652\",\n  \"price\": 1500,\n  \"stockQuantity\": 1,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.2461422Z\",\n  \"rowVersion\": \"AAAAAAAAJ1Q=\"\n}"
             }
           ]
         },
@@ -2002,10 +2002,10 @@
                 },
                 {
                   "key": "Location",
-                  "value": "http://localhost:5080/api/products/1008"
+                  "value": "http://localhost:5080/api/products/1012"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365\",\n  \"price\": 6000,\n  \"stockQuantity\": 10,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJz0=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652\",\n  \"price\": 6000,\n  \"stockQuantity\": 10,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ1U=\"\n}"
             }
           ]
         },
@@ -2124,7 +2124,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"SKU 'ORD-1792325885365' already exists.\",\n  \"instance\": \"/api/products\",\n  \"code\": \"sku_taken\",\n  \"traceId\": \"0HNPD2788O5QR:00000016\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"SKU 'ORD-1792390833652' already exists.\",\n  \"instance\": \"/api/products\",\n  \"code\": \"sku_taken\",\n  \"traceId\": \"0HNPDL3AT80M6:00000016\"\n}"
             }
           ]
         },
@@ -2230,7 +2230,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Sku\": [\n      \"The field Sku must be a string with a minimum length of 3 and a maximum length of 32.\"\n    ],\n    \"Name\": [\n      \"The Name field is required.\",\n      \"The field Name must be a string with a minimum length of 2 and a maximum length of 200.\"\n    ],\n    \"Price\": [\n      \"The field Price must be between 0.01 and 10000000.\"\n    ],\n    \"StockQuantity\": [\n      \"The field StockQuantity must be between 0 and 1000000.\"\n    ]\n  },\n  \"traceId\": \"0HNPD2788O5QR:00000017\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Sku\": [\n      \"The field Sku must be a string with a minimum length of 3 and a maximum length of 32.\"\n    ],\n    \"Name\": [\n      \"The Name field is required.\",\n      \"The field Name must be a string with a minimum length of 2 and a maximum length of 200.\"\n    ],\n    \"Price\": [\n      \"The field Price must be between 0.01 and 10000000.\"\n    ],\n    \"StockQuantity\": [\n      \"The field StockQuantity must be between 0 and 1000000.\"\n    ]\n  },\n  \"traceId\": \"0HNPDL3AT80M6:00000017\"\n}"
             }
           ]
         },
@@ -2336,7 +2336,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPD2788O5QR:00000018\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPDL3AT80M6:00000018\"\n}"
             }
           ]
         },
@@ -2427,7 +2427,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPD2788O5QR:00000019\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/products\",\n  \"traceId\": \"0HNPDL3AT80M6:00000019\"\n}"
             }
           ]
         },
@@ -2540,7 +2540,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365 (v2)\",\n  \"price\": 6000,\n  \"stockQuantity\": 10,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJz4=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652 (v2)\",\n  \"price\": 6000,\n  \"stockQuantity\": 10,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ1Y=\"\n}"
             }
           ]
         },
@@ -2661,7 +2661,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"This product was changed by someone else (or by a new order). Reload it and try again.\",\n  \"instance\": \"/api/products/1008\",\n  \"code\": \"concurrency\",\n  \"traceId\": \"0HNPD2788O5QR:0000001B\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"This product was changed by someone else (or by a new order). Reload it and try again.\",\n  \"instance\": \"/api/products/1012\",\n  \"code\": \"concurrency\",\n  \"traceId\": \"0HNPDL3AT80M6:0000001B\"\n}"
             }
           ]
         }
@@ -2670,124 +2670,6 @@
     {
       "name": "3. Orders (rules 1, 3)",
       "item": [
-        {
-          "name": "Place order without Idempotency-Key -> 400",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/api/orders",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "api",
-                "orders"
-              ]
-            },
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{customerToken}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"items\": [\n    {\n      \"productId\": {{orderProductId}},\n      \"quantity\": 1\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('status 400', () => pm.response.to.have.status(400));",
-                  "pm.test('ProblemDetails body', () => { pm.expect(pm.response.headers.get('Content-Type')).to.include('application/problem+json'); pm.expect(pm.response.json()).to.have.property('detail'); });"
-                ]
-              }
-            }
-          ],
-          "response": [
-            {
-              "name": "400 Bad Request",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{baseUrl}}/api/orders",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "api",
-                    "orders"
-                  ]
-                },
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{customerToken}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"productId\": {{orderProductId}},\n      \"quantity\": 1\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/problem+json"
-                },
-                {
-                  "key": "Cache-Control",
-                  "value": "no-cache,no-store"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "no-cache"
-                }
-              ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"The Idempotency-Key header is required when placing an order.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPD2788O5QR:0000001C\"\n}"
-            }
-          ]
-        },
         {
           "name": "Place order (Customer)",
           "request": {
@@ -2917,10 +2799,10 @@
                 },
                 {
                   "key": "Location",
-                  "value": "http://localhost:5080/api/orders/8"
+                  "value": "http://localhost:5080/api/orders/14"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -3040,7 +2922,7 @@
                   "value": "true"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -3166,7 +3048,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc4918#section-11.2\",\n  \"title\": \"Idempotency key reused\",\n  \"status\": 422,\n  \"detail\": \"This Idempotency-Key was already used for a different order request.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPD2788O5QR:0000001F\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc4918#section-11.2\",\n  \"title\": \"Idempotency key reused\",\n  \"status\": 422,\n  \"detail\": \"This Idempotency-Key was already used for a different order request.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPDL3AT80M6:0000001E\"\n}"
             }
           ]
         },
@@ -3232,7 +3114,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJ0A=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ1g=\"\n}"
             }
           ]
         },
@@ -3368,7 +3250,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"Not enough stock for: Last Unit Gadget 1792325885365 (requested 2, available 1).\",\n  \"instance\": \"/api/orders\",\n  \"code\": \"out_of_stock\",\n  \"traceId\": \"0HNPD2788O5QR:00000021\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\n  \"title\": \"Conflict\",\n  \"status\": 409,\n  \"detail\": \"Not enough stock for: Last Unit Gadget 1792390833652 (requested 2, available 1).\",\n  \"instance\": \"/api/orders\",\n  \"code\": \"out_of_stock\",\n  \"traceId\": \"0HNPDL3AT80M6:00000020\"\n}"
             }
           ]
         },
@@ -3434,7 +3316,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJ0A=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ1g=\"\n}"
             }
           ]
         },
@@ -3560,7 +3442,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"These products do not exist or are not available: 999999.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPD2788O5QR:00000023\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"These products do not exist or are not available: 999999.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPDL3AT80M6:00000022\"\n}"
             }
           ]
         },
@@ -3673,7 +3555,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Items\": [\n      \"An order needs at least one item.\"\n    ]\n  },\n  \"traceId\": \"0HNPD2788O5QR:00000024\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Items\": [\n      \"An order needs at least one item.\"\n    ]\n  },\n  \"traceId\": \"0HNPDL3AT80M6:00000023\"\n}"
             }
           ]
         },
@@ -3786,7 +3668,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPD2788O5QR:00000025\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPDL3AT80M6:00000024\"\n}"
             }
           ]
         },
@@ -3886,7 +3768,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": 8,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Pending\",\n      \"subTotal\": 12000.0,\n      \"discount\": 1800.0,\n      \"total\": 10200.0,\n      \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n      \"updatedAt\": null,\n      \"items\": [\n        {\n          \"productId\": 1008,\n          \"sku\": \"ORD-1792325885365\",\n          \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 7,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 2700.0,\n      \"total\": 15300.0,\n      \"createdAt\": \"2026-10-18T12:06:46.8649183Z\",\n      \"updatedAt\": \"2026-10-18T12:06:47.1735453Z\",\n      \"items\": [\n        {\n          \"productId\": 1006,\n          \"sku\": \"ORD-1792325194792\",\n          \"productName\": \"Order Test Speaker 1792325194792 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 6,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T12:06:42.9855747Z\",\n      \"updatedAt\": \"2026-10-18T12:06:46.5546423Z\",\n      \"items\": [\n        {\n          \"productId\": 1006,\n          \"sku\": \"ORD-1792325194792\",\n          \"productName\": \"Order Test Speaker 1792325194792 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 5,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 900.0,\n      \"total\": 17100.0,\n      \"createdAt\": \"2026-10-18T12:00:21.4308672Z\",\n      \"updatedAt\": \"2026-10-18T12:00:21.6323529Z\",\n      \"items\": [\n        {\n          \"productId\": 1004,\n          \"sku\": \"ORD-1792324815161\",\n          \"productName\": \"Order Test Speaker 1792324815161 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 4,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T12:00:18.8600603Z\",\n      \"updatedAt\": \"2026-10-18T12:00:21.159992Z\",\n      \"items\": [\n        {\n          \"productId\": 1004,\n          \"sku\": \"ORD-1792324815161\",\n          \"productName\": \"Order Test Speaker 1792324815161 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 3,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 900.0,\n      \"total\": 17100.0,\n      \"createdAt\": \"2026-10-18T11:58:04.2034474Z\",\n      \"updatedAt\": \"2026-10-18T11:58:04.5149211Z\",\n      \"items\": [\n        {\n          \"productId\": 1002,\n          \"sku\": \"ORD-1792324676694\",\n          \"productName\": \"Order Test Speaker 1792324676694 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 2,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T11:58:01.3971183Z\",\n      \"updatedAt\": \"2026-10-18T11:58:03.8985593Z\",\n      \"items\": [\n        {\n          \"productId\": 1002,\n          \"sku\": \"ORD-1792324676694\",\n          \"productName\": \"Order Test Speaker 1792324676694 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 1,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 61997.0,\n      \"discount\": 3099.85,\n      \"total\": 58897.15,\n      \"createdAt\": \"2026-10-18T11:05:01.204639Z\",\n      \"updatedAt\": \"2026-10-18T11:05:06.0334295Z\",\n      \"items\": [\n        {\n          \"productId\": 1,\n          \"sku\": \"LAP-1001\",\n          \"productName\": \"Lenovo IdeaPad Slim 5 Laptop\",\n          \"quantity\": 1,\n          \"unitPrice\": 58999.0,\n          \"lineTotal\": 58999.0\n        },\n        {\n          \"productId\": 5,\n          \"sku\": \"AUD-3001\",\n          \"productName\": \"boAt Rockerz 450 Headphones\",\n          \"quantity\": 2,\n          \"unitPrice\": 1499.0,\n          \"lineTotal\": 2998.0\n        }\n      ]\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 10,\n  \"totalCount\": 8,\n  \"totalPages\": 1\n}"
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 14,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Pending\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n      \"updatedAt\": null,\n      \"items\": [\n        {\n          \"productId\": 1012,\n          \"sku\": \"ORD-1792390833652\",\n          \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 9,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 900.0,\n      \"total\": 17100.0,\n      \"createdAt\": \"2026-10-18T12:18:14.1546971Z\",\n      \"updatedAt\": \"2026-10-18T12:18:14.4819688Z\",\n      \"items\": [\n        {\n          \"productId\": 1008,\n          \"sku\": \"ORD-1792325885365\",\n          \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 8,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 1800.0,\n      \"total\": 10200.0,\n      \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n      \"updatedAt\": \"2026-10-18T12:18:13.8071386Z\",\n      \"items\": [\n        {\n          \"productId\": 1008,\n          \"sku\": \"ORD-1792325885365\",\n          \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 7,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 2700.0,\n      \"total\": 15300.0,\n      \"createdAt\": \"2026-10-18T12:06:46.8649183Z\",\n      \"updatedAt\": \"2026-10-18T12:06:47.1735453Z\",\n      \"items\": [\n        {\n          \"productId\": 1006,\n          \"sku\": \"ORD-1792325194792\",\n          \"productName\": \"Order Test Speaker 1792325194792 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 6,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T12:06:42.9855747Z\",\n      \"updatedAt\": \"2026-10-18T12:06:46.5546423Z\",\n      \"items\": [\n        {\n          \"productId\": 1006,\n          \"sku\": \"ORD-1792325194792\",\n          \"productName\": \"Order Test Speaker 1792325194792 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 5,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 900.0,\n      \"total\": 17100.0,\n      \"createdAt\": \"2026-10-18T12:00:21.4308672Z\",\n      \"updatedAt\": \"2026-10-18T12:00:21.6323529Z\",\n      \"items\": [\n        {\n          \"productId\": 1004,\n          \"sku\": \"ORD-1792324815161\",\n          \"productName\": \"Order Test Speaker 1792324815161 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 4,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T12:00:18.8600603Z\",\n      \"updatedAt\": \"2026-10-18T12:00:21.159992Z\",\n      \"items\": [\n        {\n          \"productId\": 1004,\n          \"sku\": \"ORD-1792324815161\",\n          \"productName\": \"Order Test Speaker 1792324815161 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 3,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Cancelled\",\n      \"subTotal\": 18000.0,\n      \"discount\": 900.0,\n      \"total\": 17100.0,\n      \"createdAt\": \"2026-10-18T11:58:04.2034474Z\",\n      \"updatedAt\": \"2026-10-18T11:58:04.5149211Z\",\n      \"items\": [\n        {\n          \"productId\": 1002,\n          \"sku\": \"ORD-1792324676694\",\n          \"productName\": \"Order Test Speaker 1792324676694 (v2)\",\n          \"quantity\": 3,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 18000.0\n        }\n      ]\n    },\n    {\n      \"id\": 2,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-18T11:58:01.3971183Z\",\n      \"updatedAt\": \"2026-10-18T11:58:03.8985593Z\",\n      \"items\": [\n        {\n          \"productId\": 1002,\n          \"sku\": \"ORD-1792324676694\",\n          \"productName\": \"Order Test Speaker 1792324676694 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 1,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Shipped\",\n      \"subTotal\": 61997.0,\n      \"discount\": 3099.85,\n      \"total\": 58897.15,\n      \"createdAt\": \"2026-10-18T11:05:01.204639Z\",\n      \"updatedAt\": \"2026-10-18T11:05:06.0334295Z\",\n      \"items\": [\n        {\n          \"productId\": 1,\n          \"sku\": \"LAP-1001\",\n          \"productName\": \"Lenovo IdeaPad Slim 5 Laptop\",\n          \"quantity\": 1,\n          \"unitPrice\": 58999.0,\n          \"lineTotal\": 58999.0\n        },\n        {\n          \"productId\": 5,\n          \"sku\": \"AUD-3001\",\n          \"productName\": \"boAt Rockerz 450 Headphones\",\n          \"quantity\": 2,\n          \"unitPrice\": 1499.0,\n          \"lineTotal\": 2998.0\n        }\n      ]\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 10,\n  \"totalCount\": 10,\n  \"totalPages\": 1\n}"
             }
           ]
         },
@@ -3966,7 +3848,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -4058,7 +3940,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You can only view your own orders.\",\n  \"instance\": \"/api/orders/8\",\n  \"traceId\": \"0HNPD2788O5QR:00000028\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You can only view your own orders.\",\n  \"instance\": \"/api/orders/14\",\n  \"traceId\": \"0HNPDL3AT80M6:00000027\"\n}"
             }
           ]
         },
@@ -4137,7 +4019,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -4229,7 +4111,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Order '999999' was not found.\",\n  \"instance\": \"/api/orders/999999\",\n  \"traceId\": \"0HNPD2788O5QR:0000002A\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Order '999999' was not found.\",\n  \"instance\": \"/api/orders/999999\",\n  \"traceId\": \"0HNPDL3AT80M6:00000029\"\n}"
             }
           ]
         },
@@ -4335,7 +4217,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": 8,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Pending\",\n      \"subTotal\": 12000.0,\n      \"discount\": 1800.0,\n      \"total\": 10200.0,\n      \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n      \"updatedAt\": null,\n      \"items\": [\n        {\n          \"productId\": 1008,\n          \"sku\": \"ORD-1792325885365\",\n          \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 20,\n  \"totalCount\": 1,\n  \"totalPages\": 1\n}"
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 14,\n      \"customerId\": 2,\n      \"customerName\": \"Aarav Sharma\",\n      \"status\": \"Pending\",\n      \"subTotal\": 12000.0,\n      \"discount\": 600.0,\n      \"total\": 11400.0,\n      \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n      \"updatedAt\": null,\n      \"items\": [\n        {\n          \"productId\": 1012,\n          \"sku\": \"ORD-1792390833652\",\n          \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n          \"quantity\": 2,\n          \"unitPrice\": 6000.0,\n          \"lineTotal\": 12000.0\n        }\n      ]\n    },\n    {\n      \"id\": 12,\n      \"customerId\": 1008,\n      \"customerName\": \"Race a\",\n      \"status\": \"Pending\",\n      \"subTotal\": 999.0,\n      \"discount\": 0.0,\n      \"total\": 999.0,\n      \"createdAt\": \"2026-10-19T06:18:51.770185Z\",\n      \"updatedAt\": null,\n      \"items\": [\n        {\n          \"productId\": 1010,\n          \"sku\": \"RACE-1036818279\",\n          \"productName\": \"Race Demo Item\",\n          \"quantity\": 1,\n          \"unitPrice\": 999.0,\n          \"lineTotal\": 999.0\n        }\n      ]\n    }\n  ],\n  \"page\": 1,\n  \"pageSize\": 20,\n  \"totalCount\": 2,\n  \"totalPages\": 1\n}"
             }
           ]
         },
@@ -4412,7 +4294,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPD2788O5QR:0000002C\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/orders\",\n  \"traceId\": \"0HNPDL3AT80M6:0000002B\"\n}"
             }
           ]
         }
@@ -4539,7 +4421,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Cannot change order status from Pending to Shipped. Allowed: Pending -> Confirmed -> Shipped, or Pending/Confirmed -> Cancelled.\",\n  \"instance\": \"/api/orders/8/status\",\n  \"traceId\": \"0HNPD2788O5QR:0000002D\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Cannot change order status from Pending to Shipped. Allowed: Pending -> Confirmed -> Shipped, or Pending/Confirmed -> Cancelled.\",\n  \"instance\": \"/api/orders/14/status\",\n  \"traceId\": \"0HNPDL3AT80M6:0000002C\"\n}"
             }
           ]
         },
@@ -4660,7 +4542,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"Customers can only cancel orders.\",\n  \"instance\": \"/api/orders/8/status\",\n  \"traceId\": \"0HNPD2788O5QR:0000002E\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"Customers can only cancel orders.\",\n  \"instance\": \"/api/orders/14/status\",\n  \"traceId\": \"0HNPDL3AT80M6:0000002D\"\n}"
             }
           ]
         },
@@ -4769,7 +4651,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Status\": [\n      \"The field Status is invalid.\"\n    ]\n  },\n  \"traceId\": \"0HNPD2788O5QR:0000002F\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"One or more validation errors occurred.\",\n  \"status\": 400,\n  \"errors\": {\n    \"Status\": [\n      \"The field Status is invalid.\"\n    ]\n  },\n  \"traceId\": \"0HNPDL3AT80M6:0000002E\"\n}"
             }
           ]
         },
@@ -4879,7 +4761,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Confirmed\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": \"2026-10-18T12:18:13.5438837Z\",\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Confirmed\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": \"2026-10-19T06:20:42.5587283Z\",\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -5001,7 +4883,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Only Pending orders can be cancelled by the customer. This order is Confirmed.\",\n  \"instance\": \"/api/orders/8/status\",\n  \"traceId\": \"0HNPD2788O5QR:00000031\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Only Pending orders can be cancelled by the customer. This order is Confirmed.\",\n  \"instance\": \"/api/orders/14/status\",\n  \"traceId\": \"0HNPDL3AT80M6:00000030\"\n}"
             }
           ]
         },
@@ -5111,7 +4993,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 8,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Shipped\",\n  \"subTotal\": 12000.0,\n  \"discount\": 1800.0,\n  \"total\": 10200.0,\n  \"createdAt\": \"2026-10-18T12:18:10.7998867Z\",\n  \"updatedAt\": \"2026-10-18T12:18:13.8071386Z\",\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 14,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Shipped\",\n  \"subTotal\": 12000.0,\n  \"discount\": 600.0,\n  \"total\": 11400.0,\n  \"createdAt\": \"2026-10-19T06:20:39.4392562Z\",\n  \"updatedAt\": \"2026-10-19T06:20:42.868374Z\",\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 2,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 12000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -5233,7 +5115,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Order is Shipped and can no longer be changed.\",\n  \"instance\": \"/api/orders/8/status\",\n  \"traceId\": \"0HNPD2788O5QR:00000033\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Order is Shipped and can no longer be changed.\",\n  \"instance\": \"/api/orders/14/status\",\n  \"traceId\": \"0HNPDL3AT80M6:00000032\"\n}"
             }
           ]
         },
@@ -5348,10 +5230,10 @@
                 },
                 {
                   "key": "Location",
-                  "value": "http://localhost:5080/api/orders/9"
+                  "value": "http://localhost:5080/api/orders/15"
                 }
               ],
-              "body": "{\n  \"id\": 9,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 18000.0,\n  \"discount\": 900.0,\n  \"total\": 17100.0,\n  \"createdAt\": \"2026-10-18T12:18:14.1546971Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 3,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 18000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 15,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 18000.0,\n  \"discount\": 900.0,\n  \"total\": 17100.0,\n  \"createdAt\": \"2026-10-19T06:20:43.1843262Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 3,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 18000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -5417,7 +5299,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 5,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJ0U=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 5,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ10=\"\n}"
             }
           ]
         },
@@ -5527,7 +5409,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 9,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Cancelled\",\n  \"subTotal\": 18000.0,\n  \"discount\": 900.0,\n  \"total\": 17100.0,\n  \"createdAt\": \"2026-10-18T12:18:14.1546971Z\",\n  \"updatedAt\": \"2026-10-18T12:18:14.4819688Z\",\n  \"items\": [\n    {\n      \"productId\": 1008,\n      \"sku\": \"ORD-1792325885365\",\n      \"productName\": \"Order Test Speaker 1792325885365 (v2)\",\n      \"quantity\": 3,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 18000.0\n    }\n  ]\n}"
+              "body": "{\n  \"id\": 15,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Cancelled\",\n  \"subTotal\": 18000.0,\n  \"discount\": 900.0,\n  \"total\": 17100.0,\n  \"createdAt\": \"2026-10-19T06:20:43.1843262Z\",\n  \"updatedAt\": \"2026-10-19T06:20:43.7470231Z\",\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 3,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 18000.0\n    }\n  ]\n}"
             }
           ]
         },
@@ -5593,7 +5475,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"id\": 1008,\n  \"sku\": \"ORD-1792325885365\",\n  \"name\": \"Order Test Speaker 1792325885365 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-18T12:18:09.7350741Z\",\n  \"rowVersion\": \"AAAAAAAAJ0c=\"\n}"
+              "body": "{\n  \"id\": 1012,\n  \"sku\": \"ORD-1792390833652\",\n  \"name\": \"Order Test Speaker 1792390833652 (v2)\",\n  \"price\": 6000.0,\n  \"stockQuantity\": 8,\n  \"isActive\": true,\n  \"createdAt\": \"2026-10-19T06:20:38.3667997Z\",\n  \"rowVersion\": \"AAAAAAAAJ18=\"\n}"
             }
           ]
         },
@@ -5715,7 +5597,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Order is already Cancelled.\",\n  \"instance\": \"/api/orders/9/status\",\n  \"traceId\": \"0HNPD2788O5QR:00000038\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Business rule violated\",\n  \"status\": 400,\n  \"detail\": \"Order is already Cancelled.\",\n  \"instance\": \"/api/orders/15/status\",\n  \"traceId\": \"0HNPDL3AT80M6:00000037\"\n}"
             }
           ]
         },
@@ -5836,7 +5718,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You can only change your own orders.\",\n  \"instance\": \"/api/orders/9/status\",\n  \"traceId\": \"0HNPD2788O5QR:00000039\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You can only change your own orders.\",\n  \"instance\": \"/api/orders/15/status\",\n  \"traceId\": \"0HNPDL3AT80M6:00000038\"\n}"
             }
           ]
         },
@@ -5957,7 +5839,117 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Order '999999' was not found.\",\n  \"instance\": \"/api/orders/999999/status\",\n  \"traceId\": \"0HNPD2788O5QR:0000003A\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\n  \"title\": \"Not found\",\n  \"status\": 404,\n  \"detail\": \"Order '999999' was not found.\",\n  \"instance\": \"/api/orders/999999/status\",\n  \"traceId\": \"0HNPDL3AT80M6:00000039\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order without Idempotency-Key -> 201 (no replay protection)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "orders"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{customerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"productId\": {{orderProductId}},\n      \"quantity\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 201', () => pm.response.to.have.status(201));",
+                  "pm.test('no replay header', () => pm.expect(pm.response.headers.get('Idempotent-Replayed')).to.be.undefined);"
+                ]
+              }
+            }
+          ],
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{customerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"productId\": {{orderProductId}},\n      \"quantity\": 1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:5080/api/orders/16"
+                }
+              ],
+              "body": "{\n  \"id\": 16,\n  \"customerId\": 2,\n  \"customerName\": \"Aarav Sharma\",\n  \"status\": \"Pending\",\n  \"subTotal\": 6000.0,\n  \"discount\": 0.0,\n  \"total\": 6000.0,\n  \"createdAt\": \"2026-10-19T06:20:45.1192608Z\",\n  \"updatedAt\": null,\n  \"items\": [\n    {\n      \"productId\": 1012,\n      \"sku\": \"ORD-1792390833652\",\n      \"productName\": \"Order Test Speaker 1792390833652 (v2)\",\n      \"quantity\": 1,\n      \"unitPrice\": 6000.0,\n      \"lineTotal\": 6000.0\n    }\n  ]\n}"
             }
           ]
         }
@@ -6058,7 +6050,7 @@
                   "value": "application/json; charset=utf-8"
                 }
               ],
-              "body": "[\n  {\n    \"customerId\": 2,\n    \"fullName\": \"Aarav Sharma\",\n    \"email\": \"aarav@store.local\",\n    \"orderCount\": 5,\n    \"totalSpend\": 103297.15\n  }\n]"
+              "body": "[\n  {\n    \"customerId\": 2,\n    \"fullName\": \"Aarav Sharma\",\n    \"email\": \"aarav@store.local\",\n    \"orderCount\": 6,\n    \"totalSpend\": 114697.15\n  }\n]"
             }
           ]
         },
@@ -6162,7 +6154,7 @@
                   "value": "no-cache"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"days must be between 1 and 365.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPD2788O5QR:0000003C\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n  \"title\": \"Validation failed\",\n  \"status\": 400,\n  \"detail\": \"days must be between 1 and 365.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPDL3AT80M6:0000003C\"\n}"
             }
           ]
         },
@@ -6253,7 +6245,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPD2788O5QR:0000003D\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.4\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"You do not have permission to access this resource.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPDL3AT80M6:0000003D\"\n}"
             }
           ]
         },
@@ -6330,7 +6322,7 @@
                   "value": "application/problem+json; charset=utf-8"
                 }
               ],
-              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPD2788O5QR:0000003E\"\n}"
+              "body": "{\n  \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.2\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"A valid access token is required.\",\n  \"instance\": \"/api/reports/top-customers\",\n  \"traceId\": \"0HNPDL3AT80M6:0000003E\"\n}"
             }
           ]
         }
@@ -6444,7 +6436,7 @@
                   "value": "60"
                 }
               ],
-              "body": "{\n  \"title\": \"Too many requests\",\n  \"status\": 429,\n  \"detail\": \"Too many login attempts. Please try again in 60 seconds.\",\n  \"instance\": \"/api/auth/login\",\n  \"traceId\": \"0HNPD2788O5QR:00000041\",\n  \"retryAfterSeconds\": 60\n}"
+              "body": "{\n  \"title\": \"Too many requests\",\n  \"status\": 429,\n  \"detail\": \"Too many login attempts. Please try again in 60 seconds.\",\n  \"instance\": \"/api/auth/login\",\n  \"traceId\": \"0HNPDL3AT80M6:00000041\",\n  \"retryAfterSeconds\": 60\n}"
             }
           ]
         }

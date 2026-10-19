@@ -46,7 +46,7 @@ Calling an endpoint marked Customer / Admin / Signed in without a valid token re
   "status": 401,
   "detail": "A valid access token is required.",
   "instance": "/api/orders/my",
-  "traceId": "0HNPD2788O5QR:0000000C"
+  "traceId": "0HNPDL3AT80M6:0000000C"
 }
 ```
 
@@ -69,7 +69,7 @@ Creates a **Customer** account and signs it in (returns tokens straight away).
 ```json
 {
   "fullName": "Postman Tester",
-  "email": "tester.1792325885365@store.local",
+  "email": "tester.1792390833652@store.local",
   "password": "Tester@123"
 }
 ```
@@ -83,13 +83,13 @@ Sent: `POST /api/auth/register`
 ```json
 {
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "accessTokenExpiresAt": "2026-10-18T12:33:06.2993484Z",
-  "refreshToken": "dQHT0jSKpKKutoiKq_hZ1thVEXoHhrmKxS0p...",
-  "refreshTokenExpiresAt": "2026-10-25T12:18:06.2989065Z",
+  "accessTokenExpiresAt": "2026-10-19T06:35:34.3876698Z",
+  "refreshToken": "TVTIcvH8ztSj4BsfQoqxdMtcum2e_4PiwlDS...",
+  "refreshTokenExpiresAt": "2026-10-26T06:20:34.3876668Z",
   "user": {
-    "id": 1005,
+    "id": 1010,
     "fullName": "Postman Tester",
-    "email": "tester.1792325885365@store.local",
+    "email": "tester.1792390833652@store.local",
     "role": "Customer"
   }
 }
@@ -123,7 +123,7 @@ Sent: `POST /api/auth/register`
       "The field Password must be a string with a minimum length of 8 and a maximum length of 100."
     ]
   },
-  "traceId": "0HNPD2788O5QR:00000004"
+  "traceId": "0HNPDL3AT80M6:00000004"
 }
 ```
 
@@ -139,7 +139,7 @@ Sent: `POST /api/auth/register`
   "detail": "An account with this email already exists.",
   "instance": "/api/auth/register",
   "code": "email_taken",
-  "traceId": "0HNPD2788O5QR:00000003"
+  "traceId": "0HNPDL3AT80M6:00000003"
 }
 ```
 
@@ -167,9 +167,9 @@ Sent: `POST /api/auth/login`
 ```json
 {
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "accessTokenExpiresAt": "2026-10-18T12:33:07.0459525Z",
-  "refreshToken": "utjvtPIwo2CmTJ45PKv_piC96f0iljZo67p9...",
-  "refreshTokenExpiresAt": "2026-10-25T12:18:07.0459083Z",
+  "accessTokenExpiresAt": "2026-10-19T06:35:35.1860196Z",
+  "refreshToken": "Mw4yoBkZ1I2e6G4oLtBx4eGax9QX9o3nISG4...",
+  "refreshTokenExpiresAt": "2026-10-26T06:20:35.1860172Z",
   "user": {
     "id": 1,
     "fullName": "Store Admin",
@@ -197,7 +197,7 @@ Sent: `POST /api/auth/login`
   "status": 401,
   "detail": "Invalid email or password.",
   "instance": "/api/auth/login",
-  "traceId": "0HNPD2788O5QR:00000007"
+  "traceId": "0HNPDL3AT80M6:00000007"
 }
 ```
 
@@ -220,7 +220,7 @@ Response header `Retry-After: 60`
   "status": 429,
   "detail": "Too many login attempts. Please try again in 60 seconds.",
   "instance": "/api/auth/login",
-  "traceId": "0HNPD2788O5QR:00000041",
+  "traceId": "0HNPDL3AT80M6:00000041",
   "retryAfterSeconds": 60
 }
 ```
@@ -235,7 +235,7 @@ Swaps a refresh token for a new pair. The old refresh token stops working (rotat
 
 ```json
 {
-  "refreshToken": "dQHT0jSKpKKutoiKq_hZ1thVEXoHhrmKxS0p..."
+  "refreshToken": "TVTIcvH8ztSj4BsfQoqxdMtcum2e_4PiwlDS..."
 }
 ```
 
@@ -248,13 +248,13 @@ Sent: `POST /api/auth/refresh`
 ```json
 {
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "accessTokenExpiresAt": "2026-10-18T12:33:07.7506785Z",
-  "refreshToken": "EGwo2yvQdnw0HdeMPMTgG1FBB_KwdHt6DTqo...",
-  "refreshTokenExpiresAt": "2026-10-25T12:18:07.7506777Z",
+  "accessTokenExpiresAt": "2026-10-19T06:35:36.3082076Z",
+  "refreshToken": "0CfMBsQXJZ15pSkJh-v_LGvquwMwbhwUuLAh...",
+  "refreshTokenExpiresAt": "2026-10-26T06:20:36.3082056Z",
   "user": {
-    "id": 1005,
+    "id": 1010,
     "fullName": "Postman Tester",
-    "email": "tester.1792325885365@store.local",
+    "email": "tester.1792390833652@store.local",
     "role": "Customer"
   }
 }
@@ -271,7 +271,7 @@ Sent: `POST /api/auth/refresh`
   "status": 401,
   "detail": "Refresh token is invalid or expired.",
   "instance": "/api/auth/refresh",
-  "traceId": "0HNPD2788O5QR:00000009"
+  "traceId": "0HNPDL3AT80M6:00000009"
 }
 ```
 
@@ -285,7 +285,7 @@ Revokes the refresh token. Always 204, even if the token was already revoked.
 
 ```json
 {
-  "refreshToken": "EGwo2yvQdnw0HdeMPMTgG1FBB_KwdHt6DTqo..."
+  "refreshToken": "0CfMBsQXJZ15pSkJh-v_LGvquwMwbhwUuLAh..."
 }
 ```
 
@@ -307,7 +307,7 @@ Places an order. Stock for all items is reserved in one transaction (all or noth
 
 **Access:** Customer
 
-Header **`Idempotency-Key: <any unique string, e.g. a GUID>`** is required. Same key + same body again → the original order (200). Same key + different body → 422.
+Header **`Idempotency-Key: <any unique string, e.g. a GUID>`** (recommended; the Angular app always sends it). Same key + same body again → the original order (200). Same key + different body → 422. Without the header the order is placed normally, with no duplicate protection.
 
 **Request body**
 
@@ -315,7 +315,7 @@ Header **`Idempotency-Key: <any unique string, e.g. a GUID>`** is required. Same
 {
   "items": [
     {
-      "productId": 1008,
+      "productId": 1012,
       "quantity": 2
     }
   ]
@@ -329,19 +329,19 @@ Winner → `201 Created`
 
 ```json
 {
-  "id": 10,
-  "customerId": 1006,
+  "id": 12,
+  "customerId": 1008,
   "customerName": "Race a",
   "status": "Pending",
   "subTotal": 999.0,
   "discount": 0.0,
   "total": 999.0,
-  "createdAt": "2026-10-18T12:18:54.7959545Z",
+  "createdAt": "2026-10-19T06:18:51.770185Z",
   "updatedAt": null,
   "items": [
     {
-      "productId": 1009,
-      "sku": "RACE-3222825983",
+      "productId": 1010,
+      "sku": "RACE-1036818279",
       "productName": "Race Demo Item",
       "quantity": 1,
       "unitPrice": 999.0,
@@ -351,17 +351,17 @@ Winner → `201 Created`
 }
 ```
 
-Loser → `409 Conflict` (RowVersion check failed, nothing was reserved; stock ends at 0)
+Loser → `409 Conflict`. Its UPDATE failed the RowVersion check, so nothing was saved; it re-read the stock, found 0 and returned the normal out-of-stock answer. Stock ends at 0, one order exists
 
 ```json
 {
   "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
   "title": "Conflict",
   "status": 409,
-  "detail": "Stock for one or more products changed while your order was being placed and is no longer available.",
+  "detail": "Not enough stock for: Race Demo Item (requested 1, available 0).",
   "instance": "/api/orders",
   "code": "out_of_stock",
-  "traceId": "0HNPD2788O5R1:00000001"
+  "traceId": "0HNPDL3AT80M4:00000001"
 }
 ```
 
@@ -369,26 +369,26 @@ Loser → `409 Conflict` (RowVersion check failed, nothing was reserved; stock e
 
 #### 200 OK – Replay same Idempotency-Key -> same order (200)
 
-Sent: `POST /api/orders` with `Idempotency-Key: e707f984-18c7-4713-ac4a-4b60162da606`
+Sent: `POST /api/orders` with `Idempotency-Key: d4608108-a5e1-4ba3-bd9d-ca05927d9faa`
 
 Response header `Idempotent-Replayed: true`
 
 ```json
 {
-  "id": 8,
+  "id": 14,
   "customerId": 2,
   "customerName": "Aarav Sharma",
   "status": "Pending",
   "subTotal": 12000.0,
-  "discount": 1800.0,
-  "total": 10200.0,
-  "createdAt": "2026-10-18T12:18:10.7998867Z",
+  "discount": 600.0,
+  "total": 11400.0,
+  "createdAt": "2026-10-19T06:20:39.4392562Z",
   "updatedAt": null,
   "items": [
     {
-      "productId": 1008,
-      "sku": "ORD-1792325885365",
-      "productName": "Order Test Speaker 1792325885365 (v2)",
+      "productId": 1012,
+      "sku": "ORD-1792390833652",
+      "productName": "Order Test Speaker 1792390833652 (v2)",
       "quantity": 2,
       "unitPrice": 6000.0,
       "lineTotal": 12000.0
@@ -399,26 +399,26 @@ Response header `Idempotent-Replayed: true`
 
 #### 201 Created – Place order (Customer)
 
-Sent: `POST /api/orders` with `Idempotency-Key: e707f984-18c7-4713-ac4a-4b60162da606`
+Sent: `POST /api/orders` with `Idempotency-Key: d4608108-a5e1-4ba3-bd9d-ca05927d9faa`
 
-Response header `Location: http://localhost:5080/api/orders/8`
+Response header `Location: http://localhost:5080/api/orders/14`
 
 ```json
 {
-  "id": 8,
+  "id": 14,
   "customerId": 2,
   "customerName": "Aarav Sharma",
   "status": "Pending",
   "subTotal": 12000.0,
-  "discount": 1800.0,
-  "total": 10200.0,
-  "createdAt": "2026-10-18T12:18:10.7998867Z",
+  "discount": 600.0,
+  "total": 11400.0,
+  "createdAt": "2026-10-19T06:20:39.4392562Z",
   "updatedAt": null,
   "items": [
     {
-      "productId": 1008,
-      "sku": "ORD-1792325885365",
-      "productName": "Order Test Speaker 1792325885365 (v2)",
+      "productId": 1012,
+      "sku": "ORD-1792390833652",
+      "productName": "Order Test Speaker 1792390833652 (v2)",
       "quantity": 2,
       "unitPrice": 6000.0,
       "lineTotal": 12000.0
@@ -427,15 +427,15 @@ Response header `Location: http://localhost:5080/api/orders/8`
 }
 ```
 
-#### 400 Bad Request – Place order without Idempotency-Key -> 400
+#### 400 Bad Request – Unknown product -> 400
 
-Sent: `POST /api/orders`
+Sent: `POST /api/orders` with `Idempotency-Key: db969504-c064-4673-9d69-f89e58842e0e`
 
 ```json
 {
   "items": [
     {
-      "productId": 1008,
+      "productId": 999999,
       "quantity": 1
     }
   ]
@@ -447,21 +447,21 @@ Sent: `POST /api/orders`
   "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
   "title": "Validation failed",
   "status": 400,
-  "detail": "The Idempotency-Key header is required when placing an order.",
+  "detail": "These products do not exist or are not available: 999999.",
   "instance": "/api/orders",
-  "traceId": "0HNPD2788O5QR:0000001C"
+  "traceId": "0HNPDL3AT80M6:00000022"
 }
 ```
 
 #### 403 Forbidden – Admin cannot place orders -> 403
 
-Sent: `POST /api/orders` with `Idempotency-Key: 41ce8d0e-11a3-4186-9d5c-211f3f87e4c5`
+Sent: `POST /api/orders` with `Idempotency-Key: d3d1cfdc-3bd3-4b3d-8da6-7bfef5beb8fa`
 
 ```json
 {
   "items": [
     {
-      "productId": 1008,
+      "productId": 1012,
       "quantity": 1
     }
   ]
@@ -475,23 +475,23 @@ Sent: `POST /api/orders` with `Idempotency-Key: 41ce8d0e-11a3-4186-9d5c-211f3f87
   "status": 403,
   "detail": "You do not have permission to access this resource.",
   "instance": "/api/orders",
-  "traceId": "0HNPD2788O5QR:00000025"
+  "traceId": "0HNPDL3AT80M6:00000024"
 }
 ```
 
 #### 409 Conflict – Not enough stock on one line -> 409, nothing reserved
 
-Sent: `POST /api/orders` with `Idempotency-Key: e8e99f3b-4f43-40f1-afb3-c3f796052cd1`
+Sent: `POST /api/orders` with `Idempotency-Key: 5f20bfa6-a970-479d-b7b8-f64f80643e0f`
 
 ```json
 {
   "items": [
     {
-      "productId": 1008,
+      "productId": 1012,
       "quantity": 1
     },
     {
-      "productId": 1007,
+      "productId": 1011,
       "quantity": 2
     }
   ]
@@ -503,22 +503,22 @@ Sent: `POST /api/orders` with `Idempotency-Key: e8e99f3b-4f43-40f1-afb3-c3f79605
   "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
   "title": "Conflict",
   "status": 409,
-  "detail": "Not enough stock for: Last Unit Gadget 1792325885365 (requested 2, available 1).",
+  "detail": "Not enough stock for: Last Unit Gadget 1792390833652 (requested 2, available 1).",
   "instance": "/api/orders",
   "code": "out_of_stock",
-  "traceId": "0HNPD2788O5QR:00000021"
+  "traceId": "0HNPDL3AT80M6:00000020"
 }
 ```
 
 #### 422 Unprocessable Entity – Same key, different body -> 422
 
-Sent: `POST /api/orders` with `Idempotency-Key: e707f984-18c7-4713-ac4a-4b60162da606`
+Sent: `POST /api/orders` with `Idempotency-Key: d4608108-a5e1-4ba3-bd9d-ca05927d9faa`
 
 ```json
 {
   "items": [
     {
-      "productId": 1008,
+      "productId": 1012,
       "quantity": 5
     }
   ]
@@ -532,7 +532,7 @@ Sent: `POST /api/orders` with `Idempotency-Key: e707f984-18c7-4713-ac4a-4b60162d
   "status": 422,
   "detail": "This Idempotency-Key was already used for a different order request.",
   "instance": "/api/orders",
-  "traceId": "0HNPD2788O5QR:0000001F"
+  "traceId": "0HNPDL3AT80M6:0000001E"
 }
 ```
 
@@ -552,30 +552,51 @@ Sent: `GET /api/orders?status=Pending&page=1&pageSize=20`
 {
   "items": [
     {
-      "id": 8,
+      "id": 14,
       "customerId": 2,
       "customerName": "Aarav Sharma",
       "status": "Pending",
       "subTotal": 12000.0,
-      "discount": 1800.0,
-      "total": 10200.0,
-      "createdAt": "2026-10-18T12:18:10.7998867Z",
+      "discount": 600.0,
+      "total": 11400.0,
+      "createdAt": "2026-10-19T06:20:39.4392562Z",
       "updatedAt": null,
       "items": [
         {
-          "productId": 1008,
-          "sku": "ORD-1792325885365",
-          "productName": "Order Test Speaker 1792325885365 (v2)",
+          "productId": 1012,
+          "sku": "ORD-1792390833652",
+          "productName": "Order Test Speaker 1792390833652 (v2)",
           "quantity": 2,
           "unitPrice": 6000.0,
           "lineTotal": 12000.0
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "customerId": 1008,
+      "customerName": "Race a",
+      "status": "Pending",
+      "subTotal": 999.0,
+      "discount": 0.0,
+      "total": 999.0,
+      "createdAt": "2026-10-19T06:18:51.770185Z",
+      "updatedAt": null,
+      "items": [
+        {
+          "productId": 1010,
+          "sku": "RACE-1036818279",
+          "productName": "Race Demo Item",
+          "quantity": 1,
+          "unitPrice": 999.0,
+          "lineTotal": 999.0
         }
       ]
     }
   ],
   "page": 1,
   "pageSize": 20,
-  "totalCount": 1,
+  "totalCount": 2,
   "totalPages": 1
 }
 ```
@@ -591,7 +612,7 @@ Sent: `GET /api/orders`
   "status": 403,
   "detail": "You do not have permission to access this resource.",
   "instance": "/api/orders",
-  "traceId": "0HNPD2788O5QR:0000002C"
+  "traceId": "0HNPDL3AT80M6:0000002B"
 }
 ```
 
@@ -611,20 +632,20 @@ Sent: `GET /api/orders/my?page=1&pageSize=10`
 {
   "items": [
     {
-      "id": 8,
+      "id": 14,
       "customerId": 2,
       "customerName": "Aarav Sharma",
       "status": "Pending",
       "subTotal": 12000.0,
-      "discount": 1800.0,
-      "total": 10200.0,
-      "createdAt": "2026-10-18T12:18:10.7998867Z",
+      "discount": 600.0,
+      "total": 11400.0,
+      "createdAt": "2026-10-19T06:20:39.4392562Z",
       "updatedAt": null,
       "items": [
         {
-          "productId": 1008,
-          "sku": "ORD-1792325885365",
-          "productName": "Order Test Speaker 1792325885365 (v2)",
+          "productId": 1012,
+          "sku": "ORD-1792390833652",
+          "productName": "Order Test Speaker 1792390833652 (v2)",
           "quantity": 2,
           "unitPrice": 6000.0,
           "lineTotal": 12000.0
@@ -632,31 +653,31 @@ Sent: `GET /api/orders/my?page=1&pageSize=10`
       ]
     },
     {
-      "id": 7,
+      "id": 9,
       "customerId": 2,
       "customerName": "Aarav Sharma",
       "status": "Cancelled",
       "subTotal": 18000.0,
-      "discount": 2700.0,
-      "total": 15300.0,
-      "createdAt": "2026-10-18T12:06:46.8649183Z",
-      "updatedAt": "2026-10-18T12:06:47.1735453Z",
+      "discount": 900.0,
+      "total": 17100.0,
+      "createdAt": "2026-10-18T12:18:14.1546971Z",
+      "updatedAt": "2026-10-18T12:18:14.4819688Z",
       "items": [
         {
-          "productId": 1006,
-          "sku": "ORD-1792325194792",
-          "productName": "Order Test Speaker 1792325194792 (v2)",
+          "productId": 1008,
+          "sku": "ORD-1792325885365",
+          "productName": "Order Test Speaker 1792325885365 (v2)",
           "quantity": 3,
           "unitPrice": 6000.0,
           "lineTotal": 18000.0
         }
       ]
     },
-    "... 6 more item(s) on this page"
+    "... 8 more item(s) on this page"
   ],
   "page": 1,
   "pageSize": 10,
-  "totalCount": 8,
+  "totalCount": 10,
   "totalPages": 1
 }
 ```
@@ -672,7 +693,7 @@ Sent: `GET /api/orders/my`
   "status": 401,
   "detail": "A valid access token is required.",
   "instance": "/api/orders/my",
-  "traceId": "0HNPD2788O5QR:0000000C"
+  "traceId": "0HNPDL3AT80M6:0000000C"
 }
 ```
 
@@ -686,24 +707,24 @@ One order with its lines.
 
 #### 200 OK – Get order as owner
 
-Sent: `GET /api/orders/8`
+Sent: `GET /api/orders/14`
 
 ```json
 {
-  "id": 8,
+  "id": 14,
   "customerId": 2,
   "customerName": "Aarav Sharma",
   "status": "Pending",
   "subTotal": 12000.0,
-  "discount": 1800.0,
-  "total": 10200.0,
-  "createdAt": "2026-10-18T12:18:10.7998867Z",
+  "discount": 600.0,
+  "total": 11400.0,
+  "createdAt": "2026-10-19T06:20:39.4392562Z",
   "updatedAt": null,
   "items": [
     {
-      "productId": 1008,
-      "sku": "ORD-1792325885365",
-      "productName": "Order Test Speaker 1792325885365 (v2)",
+      "productId": 1012,
+      "sku": "ORD-1792390833652",
+      "productName": "Order Test Speaker 1792390833652 (v2)",
       "quantity": 2,
       "unitPrice": 6000.0,
       "lineTotal": 12000.0
@@ -714,7 +735,7 @@ Sent: `GET /api/orders/8`
 
 #### 403 Forbidden – Get order as another customer -> 403
 
-Sent: `GET /api/orders/8`
+Sent: `GET /api/orders/14`
 
 ```json
 {
@@ -722,8 +743,8 @@ Sent: `GET /api/orders/8`
   "title": "Forbidden",
   "status": 403,
   "detail": "You can only view your own orders.",
-  "instance": "/api/orders/8",
-  "traceId": "0HNPD2788O5QR:00000028"
+  "instance": "/api/orders/14",
+  "traceId": "0HNPDL3AT80M6:00000027"
 }
 ```
 
@@ -738,7 +759,7 @@ Sent: `GET /api/orders/999999`
   "status": 404,
   "detail": "Order '999999' was not found.",
   "instance": "/api/orders/999999",
-  "traceId": "0HNPD2788O5QR:0000002A"
+  "traceId": "0HNPDL3AT80M6:00000029"
 }
 ```
 
@@ -760,24 +781,24 @@ Allowed: Pending → Confirmed → Shipped, and Pending/Confirmed → Cancelled.
 
 #### 200 OK – Admin: Pending -> Confirmed
 
-Sent: `PATCH /api/orders/8/status`
+Sent: `PATCH /api/orders/14/status`
 
 ```json
 {
-  "id": 8,
+  "id": 14,
   "customerId": 2,
   "customerName": "Aarav Sharma",
   "status": "Confirmed",
   "subTotal": 12000.0,
-  "discount": 1800.0,
-  "total": 10200.0,
-  "createdAt": "2026-10-18T12:18:10.7998867Z",
-  "updatedAt": "2026-10-18T12:18:13.5438837Z",
+  "discount": 600.0,
+  "total": 11400.0,
+  "createdAt": "2026-10-19T06:20:39.4392562Z",
+  "updatedAt": "2026-10-19T06:20:42.5587283Z",
   "items": [
     {
-      "productId": 1008,
-      "sku": "ORD-1792325885365",
-      "productName": "Order Test Speaker 1792325885365 (v2)",
+      "productId": 1012,
+      "sku": "ORD-1792390833652",
+      "productName": "Order Test Speaker 1792390833652 (v2)",
       "quantity": 2,
       "unitPrice": 6000.0,
       "lineTotal": 12000.0
@@ -788,7 +809,7 @@ Sent: `PATCH /api/orders/8/status`
 
 #### 400 Bad Request – Pending -> Shipped (skip) -> 400
 
-Sent: `PATCH /api/orders/8/status`
+Sent: `PATCH /api/orders/14/status`
 
 ```json
 {
@@ -802,14 +823,14 @@ Sent: `PATCH /api/orders/8/status`
   "title": "Business rule violated",
   "status": 400,
   "detail": "Cannot change order status from Pending to Shipped. Allowed: Pending -> Confirmed -> Shipped, or Pending/Confirmed -> Cancelled.",
-  "instance": "/api/orders/8/status",
-  "traceId": "0HNPD2788O5QR:0000002D"
+  "instance": "/api/orders/14/status",
+  "traceId": "0HNPDL3AT80M6:0000002C"
 }
 ```
 
 #### 403 Forbidden – Customer tries to confirm -> 403
 
-Sent: `PATCH /api/orders/8/status`
+Sent: `PATCH /api/orders/14/status`
 
 ```json
 {
@@ -817,8 +838,8 @@ Sent: `PATCH /api/orders/8/status`
   "title": "Forbidden",
   "status": 403,
   "detail": "Customers can only cancel orders.",
-  "instance": "/api/orders/8/status",
-  "traceId": "0HNPD2788O5QR:0000002E"
+  "instance": "/api/orders/14/status",
+  "traceId": "0HNPDL3AT80M6:0000002D"
 }
 ```
 
@@ -833,7 +854,7 @@ Sent: `PATCH /api/orders/999999/status`
   "status": 404,
   "detail": "Order '999999' was not found.",
   "instance": "/api/orders/999999/status",
-  "traceId": "0HNPD2788O5QR:0000003A"
+  "traceId": "0HNPDL3AT80M6:00000039"
 }
 ```
 
@@ -880,8 +901,8 @@ Sent: `GET /api/products`
   ],
   "page": 1,
   "pageSize": 12,
-  "totalCount": 21,
-  "totalPages": 2
+  "totalCount": 25,
+  "totalPages": 3
 }
 ```
 
@@ -896,7 +917,7 @@ Sent: `GET /api/products?minPrice=500&maxPrice=100`
   "status": 400,
   "detail": "minPrice cannot be greater than maxPrice.",
   "instance": "/api/products",
-  "traceId": "0HNPD2788O5QR:00000011"
+  "traceId": "0HNPDL3AT80M6:00000011"
 }
 ```
 
@@ -936,7 +957,7 @@ Sent: `GET /api/products/999999`
   "status": 404,
   "detail": "Product '999999' was not found.",
   "instance": "/api/products/999999",
-  "traceId": "0HNPD2788O5QR:00000013"
+  "traceId": "0HNPDL3AT80M6:00000013"
 }
 ```
 
@@ -950,8 +971,8 @@ Creates a product. SKU is stored upper-case and must be unique.
 
 ```json
 {
-  "sku": "LAST-1792325885365",
-  "name": "Last Unit Gadget 1792325885365",
+  "sku": "LAST-1792390833652",
+  "name": "Last Unit Gadget 1792390833652",
   "price": 1500,
   "stockQuantity": 1,
   "isActive": true
@@ -964,18 +985,18 @@ Creates a product. SKU is stored upper-case and must be unique.
 
 Sent: `POST /api/products`
 
-Response header `Location: http://localhost:5080/api/products/1007`
+Response header `Location: http://localhost:5080/api/products/1011`
 
 ```json
 {
-  "id": 1007,
-  "sku": "LAST-1792325885365",
-  "name": "Last Unit Gadget 1792325885365",
+  "id": 1011,
+  "sku": "LAST-1792390833652",
+  "name": "Last Unit Gadget 1792390833652",
   "price": 1500,
   "stockQuantity": 1,
   "isActive": true,
-  "createdAt": "2026-10-18T12:18:09.546633Z",
-  "rowVersion": "AAAAAAAAJzw="
+  "createdAt": "2026-10-19T06:20:38.2461422Z",
+  "rowVersion": "AAAAAAAAJ1Q="
 }
 ```
 
@@ -1013,7 +1034,7 @@ Sent: `POST /api/products`
       "The field StockQuantity must be between 0 and 1000000."
     ]
   },
-  "traceId": "0HNPD2788O5QR:00000017"
+  "traceId": "0HNPDL3AT80M6:00000017"
 }
 ```
 
@@ -1038,7 +1059,7 @@ Sent: `POST /api/products`
   "status": 401,
   "detail": "A valid access token is required.",
   "instance": "/api/products",
-  "traceId": "0HNPD2788O5QR:00000019"
+  "traceId": "0HNPDL3AT80M6:00000019"
 }
 ```
 
@@ -1063,7 +1084,7 @@ Sent: `POST /api/products`
   "status": 403,
   "detail": "You do not have permission to access this resource.",
   "instance": "/api/products",
-  "traceId": "0HNPD2788O5QR:00000018"
+  "traceId": "0HNPDL3AT80M6:00000018"
 }
 ```
 
@@ -1073,7 +1094,7 @@ Sent: `POST /api/products`
 
 ```json
 {
-  "sku": "ORD-1792325885365",
+  "sku": "ORD-1792390833652",
   "name": "Duplicate",
   "price": 10,
   "stockQuantity": 1,
@@ -1086,10 +1107,10 @@ Sent: `POST /api/products`
   "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
   "title": "Conflict",
   "status": 409,
-  "detail": "SKU 'ORD-1792325885365' already exists.",
+  "detail": "SKU 'ORD-1792390833652' already exists.",
   "instance": "/api/products",
   "code": "sku_taken",
-  "traceId": "0HNPD2788O5QR:00000016"
+  "traceId": "0HNPDL3AT80M6:00000016"
 }
 ```
 
@@ -1103,12 +1124,12 @@ Updates a product. Send the `rowVersion` you got from GET – if the product cha
 
 ```json
 {
-  "sku": "ORD-1792325885365",
-  "name": "Order Test Speaker 1792325885365 (v2)",
+  "sku": "ORD-1792390833652",
+  "name": "Order Test Speaker 1792390833652 (v2)",
   "price": 6000,
   "stockQuantity": 10,
   "isActive": true,
-  "rowVersion": "AAAAAAAAJz0="
+  "rowVersion": "AAAAAAAAJ1U="
 }
 ```
 
@@ -1116,33 +1137,33 @@ Updates a product. Send the `rowVersion` you got from GET – if the product cha
 
 #### 200 OK – Update product (Admin, with rowVersion)
 
-Sent: `PUT /api/products/1008`
+Sent: `PUT /api/products/1012`
 
 ```json
 {
-  "id": 1008,
-  "sku": "ORD-1792325885365",
-  "name": "Order Test Speaker 1792325885365 (v2)",
+  "id": 1012,
+  "sku": "ORD-1792390833652",
+  "name": "Order Test Speaker 1792390833652 (v2)",
   "price": 6000,
   "stockQuantity": 10,
   "isActive": true,
-  "createdAt": "2026-10-18T12:18:09.7350741Z",
-  "rowVersion": "AAAAAAAAJz4="
+  "createdAt": "2026-10-19T06:20:38.3667997Z",
+  "rowVersion": "AAAAAAAAJ1Y="
 }
 ```
 
 #### 409 Conflict – Update with stale rowVersion -> 409
 
-Sent: `PUT /api/products/1008`
+Sent: `PUT /api/products/1012`
 
 ```json
 {
-  "sku": "ORD-1792325885365",
+  "sku": "ORD-1792390833652",
   "name": "Lost update",
   "price": 1,
   "stockQuantity": 999,
   "isActive": true,
-  "rowVersion": "AAAAAAAAJz0="
+  "rowVersion": "AAAAAAAAJ1U="
 }
 ```
 
@@ -1152,9 +1173,9 @@ Sent: `PUT /api/products/1008`
   "title": "Conflict",
   "status": 409,
   "detail": "This product was changed by someone else (or by a new order). Reload it and try again.",
-  "instance": "/api/products/1008",
+  "instance": "/api/products/1012",
   "code": "concurrency",
-  "traceId": "0HNPD2788O5QR:0000001B"
+  "traceId": "0HNPDL3AT80M6:0000001B"
 }
 ```
 
@@ -1180,8 +1201,8 @@ Sent: `GET /api/reports/top-customers?days=30`
     "customerId": 2,
     "fullName": "Aarav Sharma",
     "email": "aarav@store.local",
-    "orderCount": 5,
-    "totalSpend": 103297.15
+    "orderCount": 6,
+    "totalSpend": 114697.15
   }
 ]
 ```
@@ -1197,7 +1218,7 @@ Sent: `GET /api/reports/top-customers?days=0`
   "status": 400,
   "detail": "days must be between 1 and 365.",
   "instance": "/api/reports/top-customers",
-  "traceId": "0HNPD2788O5QR:0000003C"
+  "traceId": "0HNPDL3AT80M6:0000003C"
 }
 ```
 
@@ -1212,7 +1233,7 @@ Sent: `GET /api/reports/top-customers?days=30`
   "status": 401,
   "detail": "A valid access token is required.",
   "instance": "/api/reports/top-customers",
-  "traceId": "0HNPD2788O5QR:0000003E"
+  "traceId": "0HNPDL3AT80M6:0000003E"
 }
 ```
 
@@ -1227,7 +1248,7 @@ Sent: `GET /api/reports/top-customers?days=30`
   "status": 403,
   "detail": "You do not have permission to access this resource.",
   "instance": "/api/reports/top-customers",
-  "traceId": "0HNPD2788O5QR:0000003D"
+  "traceId": "0HNPDL3AT80M6:0000003D"
 }
 ```
 
