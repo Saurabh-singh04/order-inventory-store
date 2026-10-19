@@ -94,15 +94,15 @@ public sealed class HardeningTests
     }
 
     [Fact]
-    public async Task Order_without_idempotency_key_is_rejected_with_400()
+    public async Task Order_without_idempotency_key_is_placed_normally()
     {
         var productId = await _factory.CreateProductAsync(stock: 3);
         using var customer = await _factory.CreateClientForAsync("aarav@store.local");
 
         var response = await customer.PostAsJsonAsync("/api/orders", new { items = new[] { new { productId, quantity = 1 } } });
 
-        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        Assert.Equal(3, (await _factory.GetProductStateAsync(productId)).Stock);
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        Assert.Equal(2, (await _factory.GetProductStateAsync(productId)).Stock);
     }
 
     [Fact]

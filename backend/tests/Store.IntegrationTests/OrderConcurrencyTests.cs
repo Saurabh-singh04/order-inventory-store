@@ -59,6 +59,50 @@ public sealed class OrderConcurrencyTests
         Assert.Equal(1, orderLines);
     }
 
+    // Optimistic concurrency must not turn "someone else bought one too" into a failure:
+    // the request that loses the RowVersion check re-reads the stock and succeeds when there is enough.
+    [Fact]
+    public async Task Parallel_orders_all_succeed_while_there_is_enough_stock()
+    {
+        var productId = await _factory.CreateProductAsync(stock: 10);
+        var emails = new[] { "aarav@store.local", "priya@store.local", "rohan@store.local" };
+        var clients = await Task.WhenAll(emails.Select(e => _factory.CreateClientForAsync(e)));
+
+        using var start = new ManualResetEventSlim(false);
+        var tasks = clients
+            .Select((client, i) => Task.Run(async () => { start.Wait(); return await client.SendAsync(OrderRequest(productId, $"enough-{i}-{Guid.NewGuid():N}")); }))
+            .ToArray();
+        start.Set();
+        var responses = await Task.WhenAll(tasks);
+        foreach (var client in clients) client.Dispose();
+
+        Assert.All(responses, r => Assert.Equal(HttpStatusCode.Created, r.StatusCode));
+        var (stock, orderLines) = await _factory.GetProductStateAsync(productId);
+        Assert.Equal(7, stock);
+        Assert.Equal(3, orderLines);
+    }
+
+    // Rule 1 against the real database: one short line fails the whole order and no stock moves.
+    [Fact]
+    public async Task One_short_line_fails_the_whole_order_and_no_stock_changes()
+    {
+        var plentyId = await _factory.CreateProductAsync(stock: 5);
+        var scarceId = await _factory.CreateProductAsync(stock: 1);
+        using var client = await _factory.CreateClientForAsync("aarav@store.local");
+
+        var request = new HttpRequestMessage(HttpMethod.Post, "/api/orders")
+        {
+            Content = JsonContent.Create(new { items = new[] { new { productId = plentyId, quantity = 2 }, new { productId = scarceId, quantity = 2 } } })
+        };
+        request.Headers.Add("Idempotency-Key", Guid.NewGuid().ToString());
+
+        var response = await client.SendAsync(request);
+
+        Assert.Equal(HttpStatusCode.Conflict, response.StatusCode);
+        Assert.Equal((5, 0), await _factory.GetProductStateAsync(plentyId));
+        Assert.Equal((1, 0), await _factory.GetProductStateAsync(scarceId));
+    }
+
     // Rule 3 under concurrency: a double-click sends the same key twice at once -> one order, stock reduced once.
     [Fact]
     public async Task Parallel_requests_with_the_same_idempotency_key_create_one_order()

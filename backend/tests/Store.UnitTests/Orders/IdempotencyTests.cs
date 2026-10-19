@@ -50,10 +50,22 @@ public class IdempotencyTests : IDisposable
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
-    public async Task Missing_key_is_a_validation_error(string? key)
+    public async Task Without_a_key_each_request_is_a_new_order(string? key)
+    {
+        var first = await _ctx.CreateService().PlaceOrderAsync(CustomerId, Request((MouseId, 1)), key, default);
+        var second = await _ctx.CreateService().PlaceOrderAsync(CustomerId, Request((MouseId, 1)), key, default);
+
+        Assert.True(first.Created);
+        Assert.True(second.Created);
+        Assert.NotEqual(first.Order.Id, second.Order.Id);
+        Assert.Equal(18, _ctx.StockOf(MouseId));
+    }
+
+    [Fact]
+    public async Task Overlong_key_is_a_validation_error()
     {
         await Assert.ThrowsAsync<ValidationException>(() =>
-            _ctx.CreateService().PlaceOrderAsync(CustomerId, Request((MouseId, 1)), key, default));
+            _ctx.CreateService().PlaceOrderAsync(CustomerId, Request((MouseId, 1)), new string('k', 101), default));
 
         Assert.Equal(0, _ctx.OrderCount());
     }

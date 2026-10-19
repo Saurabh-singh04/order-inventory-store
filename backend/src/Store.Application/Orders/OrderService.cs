@@ -28,6 +28,7 @@ public sealed class OrderService : IOrderService
 {
     public const string OrderPlacedMessageType = "OrderPlaced";
     private const int MaxStatusChangeAttempts = 3;
+    private const int MaxPlaceOrderAttempts = 3;
     private const int ExpiredBatchSize = 100;
 
     private readonly IAppDbContext _db;
@@ -61,62 +62,68 @@ public sealed class OrderService : IOrderService
     public async Task<PlaceOrderResult> PlaceOrderAsync(
         int customerId, CreateOrderRequest request, string? idempotencyKey, CancellationToken cancellationToken)
     {
-        var key = ValidateIdempotencyKey(idempotencyKey);
+        var key = NormalizeIdempotencyKey(idempotencyKey);
         var lines = NormalizeLines(request);
         var requestHash = ComputeRequestHash(lines);
 
         // Fast path: the same request was already processed.
-        var existing = await FindByIdempotencyKeyAsync(customerId, key, cancellationToken);
-        if (existing is not null)
-            return await ReplayAsync(existing, requestHash, cancellationToken);
-
-        try
+        if (key is not null)
         {
-            var order = await CreateOrderInTransactionAsync(customerId, key, requestHash, lines, cancellationToken);
-
-            _productCache.Invalidate();
-            _logger.LogInformation(
-                "Order {OrderId} placed by customer {CustomerId}: SubTotal={SubTotal} Discount={Discount} Total={Total}",
-                order.Id, customerId, order.SubTotal, order.Discount, order.Total);
-
-            var dto = await GetDtoAsync(order.Id, cancellationToken);
-            return new PlaceOrderResult(dto, Created: true);
+            var existing = await FindByIdempotencyKeyAsync(customerId, key, cancellationToken);
+            if (existing is not null)
+                return await ReplayAsync(existing, requestHash, cancellationToken);
         }
-        catch (DbUpdateConcurrencyException)
+
+        for (var attempt = 1; ; attempt++)
         {
-            // Another order changed one of the products (RowVersion mismatch) between our read and our write.
-            _db.ChangeTracker.Clear();
+            try
+            {
+                var order = await CreateOrderInTransactionAsync(customerId, key, requestHash, lines, cancellationToken);
 
-            var winner = await FindByIdempotencyKeyAsync(customerId, key, cancellationToken);
-            if (winner is not null)
-                return await ReplayAsync(winner, requestHash, cancellationToken);
+                _productCache.Invalidate();
+                _logger.LogInformation(
+                    "Order {OrderId} placed by customer {CustomerId}: SubTotal={SubTotal} Discount={Discount} Total={Total}",
+                    order.Id, customerId, order.SubTotal, order.Discount, order.Total);
 
-            _logger.LogWarning("Order for customer {CustomerId} lost a stock race (optimistic concurrency)", customerId);
-            throw new ConflictException(
-                "Stock for one or more products changed while your order was being placed and is no longer available.",
-                "out_of_stock");
-        }
-        catch (DbUpdateException ex) when (_dbErrors.IsUniqueConstraintViolation(ex))
-        {
-            // Two requests with the same Idempotency-Key raced; the unique index let only one in.
-            _db.ChangeTracker.Clear();
+                var dto = await GetDtoAsync(order.Id, cancellationToken);
+                return new PlaceOrderResult(dto, Created: true);
+            }
+            catch (Exception ex) when (ex is DbUpdateConcurrencyException || _dbErrors.IsDeadlock(ex))
+            {
+                // Another order changed one of the products (RowVersion mismatch) between our read and
+                // our write, so nothing of ours was saved. Re-read and try again: if there is still enough
+                // stock the order goes through, if the stock is really gone the stock check returns 409.
+                _db.ChangeTracker.Clear();
 
-            var winner = await FindByIdempotencyKeyAsync(customerId, key, cancellationToken);
-            if (winner is not null)
-                return await ReplayAsync(winner, requestHash, cancellationToken);
+                if (key is not null && await FindByIdempotencyKeyAsync(customerId, key, cancellationToken) is { } winner)
+                    return await ReplayAsync(winner, requestHash, cancellationToken);
 
-            throw;
-        }
-        catch (Exception ex) when (_dbErrors.IsDeadlock(ex))
-        {
-            _db.ChangeTracker.Clear();
-            _logger.LogWarning(ex, "Deadlock while placing order for customer {CustomerId}", customerId);
-            throw new ConflictException("The order could not be placed because of a concurrent update. Please try again.", "concurrency");
+                if (attempt >= MaxPlaceOrderAttempts)
+                {
+                    _logger.LogWarning("Order for customer {CustomerId} gave up after {Attempts} concurrent-update retries", customerId, attempt);
+                    throw new ConflictException(
+                        "These products are being ordered by many people right now. Please try again.", "concurrency");
+                }
+
+                _logger.LogInformation(
+                    "Stock changed while placing an order for customer {CustomerId}; retrying (attempt {Attempt})", customerId, attempt);
+            }
+            catch (DbUpdateException ex) when (key is not null && _dbErrors.IsUniqueConstraintViolation(ex))
+            {
+                // Two requests with the same Idempotency-Key raced; the unique index let only one in.
+                _db.ChangeTracker.Clear();
+
+                var winner = await FindByIdempotencyKeyAsync(customerId, key, cancellationToken);
+                if (winner is not null)
+                    return await ReplayAsync(winner, requestHash, cancellationToken);
+
+                throw;
+            }
         }
     }
 
     private async Task<Order> CreateOrderInTransactionAsync(
-        int customerId, string key, string requestHash, IReadOnlyList<OrderLine> lines, CancellationToken cancellationToken)
+        int customerId, string? key, string requestHash, IReadOnlyList<OrderLine> lines, CancellationToken cancellationToken)
     {
         // Disposing without commit rolls everything back, so a failure anywhere leaves stock untouched.
         await using var transaction = await _db.Database.BeginTransactionAsync(cancellationToken);
@@ -154,7 +161,7 @@ public sealed class OrderService : IOrderService
             Status = OrderStatus.Pending,
             CreatedAt = now,
             IdempotencyKey = key,
-            RequestHash = requestHash
+            RequestHash = key is null ? null : requestHash
         };
 
         foreach (var line in lines)
@@ -194,10 +201,14 @@ public sealed class OrderService : IOrderService
         return order;
     }
 
-    private string ValidateIdempotencyKey(string? idempotencyKey)
+    /// <summary>
+    /// The header is optional: without it the order is placed normally (no replay protection);
+    /// the Angular client always sends one.
+    /// </summary>
+    private string? NormalizeIdempotencyKey(string? idempotencyKey)
     {
         if (string.IsNullOrWhiteSpace(idempotencyKey))
-            throw new ValidationException("The Idempotency-Key header is required when placing an order.");
+            return null;
 
         var key = idempotencyKey.Trim();
         if (key.Length > _options.MaxIdempotencyKeyLength)

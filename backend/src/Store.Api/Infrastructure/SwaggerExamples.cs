@@ -74,8 +74,9 @@ public sealed class IdempotencyKeyOperationFilter : IOperationFilter
         if (header is null)
             return;
 
-        header.Required = true;
-        header.Description = "Any unique string (a GUID is easiest). Sending the same key again returns the original order instead of creating a new one.";
+        header.Required = false;
+        header.Description = "Recommended. Any unique string (a GUID is easiest). Sending the same key again returns the original order " +
+                             "instead of creating a new one. Without it the order is placed normally, with no duplicate protection.";
         header.Example = new OpenApiString("3f9c2b1e-8a4d-4c1b-9e2f-6d7a5b0c1e23");
     }
 }
