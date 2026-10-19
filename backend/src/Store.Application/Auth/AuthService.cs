@@ -131,10 +131,11 @@ public sealed class AuthService : IAuthService
         {
             return await IssueTokensAsync(stored.User, cancellationToken, replacing: stored);
         }
-        catch (DbUpdateConcurrencyException)
+        catch (Exception ex) when (ex is DbUpdateConcurrencyException || _dbErrors.IsDeadlock(ex))
         {
             // RevokedAt is a concurrency token: a parallel refresh with the same token already
-            // rotated it, so this one must not mint a second valid refresh token.
+            // rotated it, so this one must not mint a second valid refresh token. Under load SQL Server
+            // may also resolve the same race as a deadlock - the outcome for this caller is the same.
             _logger.LogWarning("Concurrent refresh with the same token for user {UserId}", stored.UserId);
             throw new UnauthorizedException(InvalidRefreshToken);
         }
