@@ -15,6 +15,17 @@ describe('toApiError', () => {
     expect(result.message).toContain('Apple iPad');
   });
 
+  it('does not call a busy-product retry failure "out of stock"', () => {
+    const error = new HttpErrorResponse({
+      status: 409,
+      error: { status: 409, code: 'concurrency', detail: 'These products are being ordered by many people right now. Please try again.' },
+    });
+
+    const result = toApiError(error, 'order');
+
+    expect(result.message).toBe('These products are being ordered by many people right now. Please try again.');
+  });
+
   it('tells the user how long to wait after too many logins (429)', () => {
     const error = new HttpErrorResponse({
       status: 429,

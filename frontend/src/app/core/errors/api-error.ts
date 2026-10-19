@@ -44,7 +44,7 @@ export function toApiError(error: unknown, context: 'login' | 'order' | 'default
       return { status: 404, message: detail ?? 'The item you are looking for no longer exists.' };
 
     case 409:
-      if (problem.code === 'out_of_stock' || context === 'order') {
+      if (problem.code === 'out_of_stock' || (context === 'order' && !problem.code)) {
         return {
           status: 409,
           code: problem.code,

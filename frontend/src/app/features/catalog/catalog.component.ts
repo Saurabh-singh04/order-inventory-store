@@ -9,6 +9,7 @@ import {
   combineLatest,
   debounceTime,
   distinctUntilChanged,
+  filter,
   map,
   merge,
   of,
@@ -174,7 +175,9 @@ export class CatalogComponent {
       this.search.valueChanges.pipe(
         debounceTime(300),
         map((value) => value.trim()),
-        distinctUntilChanged(),
+        // Compare with the URL, not with the last typed value: after "Clear" the box is reset
+        // without emitting, and typing the same text again must still apply it.
+        filter((search) => search !== this.filters().search),
         map((search) => ({ search })),
       ),
       merge(this.minPrice.valueChanges, this.maxPrice.valueChanges).pipe(
